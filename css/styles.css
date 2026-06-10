@@ -1151,6 +1151,19 @@ input[type=range]::-moz-range-thumb {
 }
 .pricing-card--featured .pricing-card__list li { color: var(--text); }
 
+/* Featured card text contrast fixes */
+.pricing-card--featured .pricing-card__tier {
+  color: rgba(255,255,255,.8);
+}
+.pricing-card--featured .pricing-card__desc {
+  color: rgba(255,255,255,.62);
+  border-bottom-color: rgba(255,255,255,.1);
+}
+.pricing-card--featured .price__cur,
+.pricing-card--featured .price__per {
+  color: rgba(255,255,255,.58);
+}
+
 /* ===========================================
    TESTIMONIALS
 =========================================== */
