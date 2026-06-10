@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="JM Productions — Automatizamos las tareas que te quitan tiempo para que tu negocio crezca más rápido y gane más dinero." />
-  <title>JM Productions | Automatizaciones para tu Negocio</title>
+  <meta name="description" content="JM Productions automatiza los procesos que frenan tu negocio. Recupera tiempo, reduce costos y multiplica tus ganancias con automatizaciones inteligentes." />
+  <title>JM Productions — Automatiza. Crece. Gana más.</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,316 +12,696 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
+<!-- ====== NAV ====== -->
+<nav class="nav" id="nav">
+  <div class="nav__wrap">
+    <a href="#" class="nav__logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="url(#lg1)"/>
+        <path d="M8 17L13 12L18 17L23 12" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 22L13 17L18 22L23 17" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+        <defs><linearGradient id="lg1" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+      </svg>
+      <span>JM <strong>Productions</strong></span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#roi">ROI</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav__actions" id="navActions">
+      <a href="#contacto" class="btn btn--ghost btn--sm">Contacto</a>
+      <a href="#precios" class="btn btn--primary btn--sm">Ver planes</a>
+    </div>
+    <button class="nav__burger" id="burger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="inicio">
+  <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <div class="hero__eyebrow">
+        <span class="eyebrow__dot"></span>
+        Automatizaciones para empresas
+      </div>
+      <h1 class="hero__h1">
+        Haz que tu negocio<br>
+        <span class="gradient-text">trabaje por ti.</span>
+      </h1>
+      <p class="hero__desc">
+        Automatizamos los procesos que te roban tiempo para que puedas
+        enfocarte en estrategia, ventas y crecimiento real.
+        Tu competencia ya lo está haciendo.
+      </p>
+      <div class="hero__btns">
+        <a href="#contacto" class="btn btn--primary btn--lg">
+          Agenda tu auditoría gratis
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#proceso" class="btn btn--ghost btn--lg">Ver cómo funciona</a>
+      </div>
+      <div class="hero__proof">
+        <div class="proof__avatars">
+          <div class="proof__avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"></div>
+          <div class="proof__avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4)"></div>
+          <div class="proof__avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)"></div>
+          <div class="proof__avatar" style="background:linear-gradient(135deg,#f43f5e,#fb923c)"></div>
+        </div>
+        <span><strong>+120 empresas</strong> ya automatizan con nosotros</span>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="dashboard">
+        <div class="dash__header">
+          <span class="dash__title">Centro de Automatizaciones</span>
+          <span class="dash__live"><span class="pulse-dot"></span>24 activas</span>
+        </div>
+        <div class="dash__flows">
+          <div class="dash-flow">
+            <div class="dash-flow__icon dash-flow__icon--mail">&#x2709;</div>
+            <div class="dash-flow__info">
+              <span>Email follow-up</span>
+              <small>Ejecutado hace 2 min</small>
+            </div>
+            <span class="dash-flow__ok">&#10003; OK</span>
+          </div>
+          <div class="dash-flow">
+            <div class="dash-flow__icon dash-flow__icon--crm">&#9672;</div>
+            <div class="dash-flow__info">
+              <span>Actualizar CRM</span>
+              <small>3 leads nuevos</small>
+            </div>
+            <span class="dash-flow__ok">&#10003; OK</span>
+          </div>
+          <div class="dash-flow">
+            <div class="dash-flow__icon dash-flow__icon--inv">&euro;</div>
+            <div class="dash-flow__info">
+              <span>Factura automática</span>
+              <small>&euro;2,400 cobrados</small>
+            </div>
+            <span class="dash-flow__ok">&#10003; OK</span>
+          </div>
+          <div class="dash-flow">
+            <div class="dash-flow__icon dash-flow__icon--rep">&#8599;</div>
+            <div class="dash-flow__info">
+              <span>Informe semanal</span>
+              <small>Enviado al equipo</small>
+            </div>
+            <span class="dash-flow__ok">&#10003; OK</span>
+          </div>
+        </div>
+        <div class="dash__chart">
+          <div class="chart__label">Tareas ejecutadas esta semana</div>
+          <div class="chart__bars">
+            <div class="chart__bar" style="--h:45%"><span>L</span></div>
+            <div class="chart__bar" style="--h:62%"><span>M</span></div>
+            <div class="chart__bar" style="--h:55%"><span>X</span></div>
+            <div class="chart__bar" style="--h:80%"><span>J</span></div>
+            <div class="chart__bar chart__bar--hi" style="--h:95%"><span>V</span></div>
+            <div class="chart__bar" style="--h:28%"><span>S</span></div>
+            <div class="chart__bar" style="--h:18%"><span>D</span></div>
+          </div>
+        </div>
+        <div class="dash__metrics">
+          <div class="dash-metric">
+            <span class="dash-metric__val">1,247</span>
+            <span class="dash-metric__label">Tareas ahorradas</span>
+          </div>
+          <div class="dash-metric__sep"></div>
+          <div class="dash-metric">
+            <span class="dash-metric__val">&euro;8,320</span>
+            <span class="dash-metric__label">Valor recuperado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#integraciones" class="hero__scroll" aria-label="Ir a integraciones">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<!-- ====== INTEGRATIONS ====== -->
+<section class="integrations" id="integraciones">
+  <div class="container">
+    <p class="integrations__label">Integramos con más de 50 herramientas que ya usas</p>
+    <div class="integrations__track" aria-hidden="true">
+      <div class="integrations__inner">
+        <span class="tool-badge">WhatsApp</span>
+        <span class="tool-badge">HubSpot</span>
+        <span class="tool-badge">Notion</span>
+        <span class="tool-badge">Slack</span>
+        <span class="tool-badge">Shopify</span>
+        <span class="tool-badge">Zapier</span>
+        <span class="tool-badge">Make</span>
+        <span class="tool-badge">Gmail</span>
+        <span class="tool-badge">Stripe</span>
+        <span class="tool-badge">Calendly</span>
+        <span class="tool-badge">Airtable</span>
+        <span class="tool-badge">Typeform</span>
+        <span class="tool-badge">WhatsApp</span>
+        <span class="tool-badge">HubSpot</span>
+        <span class="tool-badge">Notion</span>
+        <span class="tool-badge">Slack</span>
+        <span class="tool-badge">Shopify</span>
+        <span class="tool-badge">Zapier</span>
+        <span class="tool-badge">Make</span>
+        <span class="tool-badge">Gmail</span>
+        <span class="tool-badge">Stripe</span>
+        <span class="tool-badge">Calendly</span>
+        <span class="tool-badge">Airtable</span>
+        <span class="tool-badge">Typeform</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PAIN ====== -->
+<section class="pain">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">El problema</span>
+      <h2 class="section-title">
+        Mientras haces tareas manuales,<br>
+        <span class="gradient-text">estás dejando de ganar dinero.</span>
+      </h2>
+      <p class="section-sub">Las empresas pierden de media <strong>19 horas semanales</strong> en procesos repetitivos. A &euro;50/hora, eso son más de <strong>&euro;49,000 al año</strong> que se van por el desagüe.</p>
+    </div>
+    <div class="pain__grid">
+      <div class="pain-card reveal">
+        <div class="pain-card__num">19h</div>
+        <div class="pain-card__text">promedio semanal perdidas en tareas manuales por empresa</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card__num">&euro;49K</div>
+        <div class="pain-card__text">en valor perdido cada año que podría ir a tu bolsillo</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card__num">62%</div>
+        <div class="pain-card__text">de empleados hace trabajo que se puede automatizar hoy</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card__num">3&times;</div>
+        <div class="pain-card__text">más rápido crecen las empresas que automatizan sus procesos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES BENTO ====== -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Servicios</span>
+      <h2 class="section-title">Todo lo que automatizamos para ti</h2>
+      <p class="section-sub">Desde la primera interacción con un cliente hasta el cobro final, automatizamos cada paso del camino.</p>
+    </div>
+    <div class="bento">
+      <div class="bento-card bento-card--lg bento-card--featured reveal">
+        <div class="bento-card__tag">Más solicitado</div>
+        <svg class="bento-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M6 14h28M6 20h20M6 26h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="32" cy="28" r="7" fill="rgba(99,102,241,0.15)" stroke="currentColor" stroke-width="2"/><path d="M32 25v6M29 28h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Ventas &amp; CRM</h3>
+        <p>Pipeline actualizado solo, seguimientos automáticos, recordatorios de cierre y reportes de ventas sin trabajo manual. Cierra más sin llamar más.</p>
+        <div class="bento-card__kpi">
+          <span class="kpi__val">+45%</span>
+          <span class="kpi__label">tasa de cierre promedio</span>
+        </div>
+      </div>
+      <div class="bento-card bento-card--md reveal">
+        <svg class="bento-card__icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="4" y="7" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M4 12l14 9 14-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Email Marketing</h3>
+        <p>Secuencias de bienvenida, nurturing y reactivación. Cada lead recibe el mensaje correcto en el momento exacto, sin que muevas un dedo.</p>
+        <div class="bento-card__kpi">
+          <span class="kpi__val">4.2&times;</span>
+          <span class="kpi__label">ROI promedio</span>
+        </div>
+      </div>
+      <div class="bento-card bento-card--md reveal">
+        <svg class="bento-card__icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="6" y="4" width="24" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 14h12M12 19h8M12 24h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Facturación &amp; Cobros</h3>
+        <p>Facturas generadas solas, cobros recurrentes y recordatorios de pago. Cobra más rápido con cero fricción y cero errores.</p>
+        <div class="bento-card__kpi">
+          <span class="kpi__val">-80%</span>
+          <span class="kpi__label">tiempo de cobro</span>
+        </div>
+      </div>
+      <div class="bento-card bento-card--sm reveal">
+        <svg class="bento-card__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="5" width="26" height="20" rx="4" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="15" r="4" stroke="currentColor" stroke-width="2"/><path d="M3 10h26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Redes Sociales</h3>
+        <p>Publicaciones programadas y reportes de engagement automáticos.</p>
+      </div>
+      <div class="bento-card bento-card--sm reveal">
+        <svg class="bento-card__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 22L11 14L16 19L22 10L27 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="7" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Datos &amp; Reportes</h3>
+        <p>KPIs en tiempo real y dashboards sin ningún trabajo manual.</p>
+      </div>
+      <div class="bento-card bento-card--sm reveal">
+        <svg class="bento-card__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 4a5 5 0 015 5v3h2v16H9V12h2V9a5 5 0 015-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="16" cy="19" r="2" fill="currentColor"/></svg>
+        <h3>Atención al Cliente</h3>
+        <p>Chatbot que resuelve el 70% de consultas 24 horas al día.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section class="process" id="proceso">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Cómo funciona</span>
+      <h2 class="section-title">En 3 semanas, tu negocio funciona solo.</h2>
+      <p class="section-sub">Un proceso probado en más de 120 empresas para implementar automatizaciones sin interrumpir tu operación diaria.</p>
+    </div>
+    <div class="process__track">
+      <div class="process-step reveal">
+        <div class="process-step__bubble">01</div>
+        <div class="process-step__body">
+          <h3>Auditoría gratuita</h3>
+          <p>Analizamos cada proceso de tu negocio durante 60 minutos y te mostramos exactamente qué automatizar y cuánto dinero recuperarás. Sin compromiso.</p>
+          <div class="process-step__tags">
+            <span>&#10003; 100% gratis</span>
+            <span>&#10003; Sin compromiso</span>
+            <span>&#10003; Resultados en 48h</span>
+          </div>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step__bubble">02</div>
+        <div class="process-step__body">
+          <h3>Diseño a medida</h3>
+          <p>Construimos flujos de automatización personalizados para tu negocio usando las herramientas que ya tienes o las mejores del mercado. Tú solo apruebas.</p>
+          <div class="process-step__tags">
+            <span>&#10003; 100% personalizado</span>
+            <span>&#10003; Sin código</span>
+            <span>&#10003; Semana 1&ndash;2</span>
+          </div>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step__bubble">03</div>
+        <div class="process-step__body">
+          <h3>Activación &amp; escala</h3>
+          <p>Lanzamos, monitorizamos y mejoramos continuamente. Soporte ilimitado y optimizaciones mensuales incluidas en todos los planes para siempre.</p>
+          <div class="process-step__tags">
+            <span>&#10003; Soporte continuo</span>
+            <span>&#10003; Mejoras mensuales</span>
+            <span>&#10003; Semana 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== METRICS ====== -->
+<section class="metrics">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Resultados reales</span>
+      <h2 class="section-title">Números que hablan por sí solos</h2>
+    </div>
+    <div class="metrics__grid">
+      <div class="metric-card reveal">
+        <div class="metric-card__val"><span class="counter" data-target="62">0</span>%</div>
+        <div class="metric-card__label">Reducción en costos operativos</div>
+        <div class="metric-card__sub">Promedio entre nuestros clientes en los primeros 3 meses</div>
+      </div>
+      <div class="metric-card metric-card--hi reveal">
+        <div class="metric-card__val"><span class="counter" data-target="40">0</span>h</div>
+        <div class="metric-card__label">Recuperadas cada semana</div>
+        <div class="metric-card__sub">Tiempo devuelto a tu equipo para trabajo estratégico de verdad</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-card__val"><span class="counter" data-target="3">0</span>&times;</div>
+        <div class="metric-card__label">Más capacidad de clientes</div>
+        <div class="metric-card__sub">Sin contratar personal adicional ni aumentar tus costos</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-card__val">&euro;<span class="counter" data-target="50">0</span>K</div>
+        <div class="metric-card__label">Ahorro anual promedio</div>
+        <div class="metric-card__sub">En costos de trabajo manual y errores humanos eliminados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ROI CALCULATOR ====== -->
+<section class="roi" id="roi">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Calculadora ROI</span>
+      <h2 class="section-title">Descubre cuánto estás perdiendo ahora mismo</h2>
+      <p class="section-sub">Ajusta los valores y ve en tiempo real el dinero que puedes recuperar automatizando tu negocio.</p>
+    </div>
+    <div class="calculator reveal">
+      <div class="calc__inputs">
+        <div class="calc__field">
+          <div class="calc__field-header">
+            <label for="sliderHoras">Horas semanales en tareas manuales</label>
+            <span class="calc__field-val" id="lblHoras">20h</span>
+          </div>
+          <input type="range" id="sliderHoras" min="1" max="80" value="20" />
+          <div class="calc__range-marks"><span>1h</span><span>40h</span><span>80h</span></div>
+        </div>
+        <div class="calc__field">
+          <div class="calc__field-header">
+            <label for="sliderValor">Valor de tu hora de trabajo</label>
+            <span class="calc__field-val" id="lblValor">&euro;50</span>
+          </div>
+          <input type="range" id="sliderValor" min="10" max="500" value="50" step="10" />
+          <div class="calc__range-marks"><span>&euro;10</span><span>&euro;255</span><span>&euro;500</span></div>
+        </div>
+        <div class="calc__field">
+          <div class="calc__field-header">
+            <label for="sliderEmp">Número de personas en tu equipo</label>
+            <span class="calc__field-val" id="lblEmp">5 personas</span>
+          </div>
+          <input type="range" id="sliderEmp" min="1" max="50" value="5" />
+          <div class="calc__range-marks"><span>1</span><span>25</span><span>50</span></div>
+        </div>
+      </div>
+      <div class="calc__result">
+        <div class="calc__loss-block">
+          <span class="calc__loss-label">Estás perdiendo al año</span>
+          <span class="calc__loss-val" id="resLoss">&euro;260,000</span>
+        </div>
+        <div class="calc__breakdown">
+          <div class="calc__breakdown-row">
+            <span>Costo anual de JM Productions</span>
+            <span class="text-green" id="resCosto">&euro;17,964</span>
+          </div>
+          <div class="calc__breakdown-row calc__breakdown-row--total">
+            <span>Ganancia neta en el primer año</span>
+            <span class="text-big" id="resGanancia">&euro;242,036</span>
+          </div>
+        </div>
+        <a href="#contacto" class="btn btn--primary btn--full" style="margin-top:24px">Quiero este retorno &rarr;</a>
+        <p class="calc__note">Basado en el plan Profesional. Resultados reales pueden variar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PRICING ====== -->
+<section class="pricing" id="precios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Planes</span>
+      <h2 class="section-title">Inversión transparente, resultados garantizados</h2>
+      <p class="section-sub">Sin contratos anuales. Sin sorpresas. Cancela cuando quieras.</p>
+    </div>
+    <div class="pricing__grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-card__tier">Starter</div>
+        <div class="pricing-card__price">
+          <span class="price__cur">&euro;</span>
+          <span class="price__amt">697</span>
+          <span class="price__per">/mes</span>
+        </div>
+        <p class="pricing-card__desc">Para negocios que quieren empezar a automatizar sus procesos clave sin grandes riesgos.</p>
+        <ul class="pricing-card__list">
+          <li>Hasta 3 automatizaciones activas</li>
+          <li>Auditoría de procesos incluida</li>
+          <li>Integraciones con 10 herramientas</li>
+          <li>Soporte por email (48h)</li>
+          <li>Revisión mensual</li>
+        </ul>
+        <a href="#contacto" class="btn btn--ghost btn--full">Empezar &rarr;</a>
+      </div>
+
+      <div class="pricing-card pricing-card--featured reveal">
+        <div class="pricing-card__badge">Más popular</div>
+        <div class="pricing-card__tier">Profesional</div>
+        <div class="pricing-card__price">
+          <span class="price__cur">&euro;</span>
+          <span class="price__amt">1,497</span>
+          <span class="price__per">/mes</span>
+        </div>
+        <p class="pricing-card__desc">Para empresas en crecimiento que quieren operar en piloto automático y escalar sin contratar.</p>
+        <ul class="pricing-card__list">
+          <li>Hasta 10 automatizaciones activas</li>
+          <li>Auditoría completa de procesos</li>
+          <li>Integraciones ilimitadas</li>
+          <li>Soporte prioritario (4h)</li>
+          <li>Revisiones semanales</li>
+          <li>Dashboard de métricas en tiempo real</li>
+          <li>Formación para tu equipo</li>
+        </ul>
+        <a href="#contacto" class="btn btn--primary btn--full">Empezar &rarr;</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card__tier">Enterprise</div>
+        <div class="pricing-card__price">
+          <span class="price__amt price__amt--custom">A medida</span>
+        </div>
+        <p class="pricing-card__desc">Para empresas con operaciones complejas que necesitan escala total y un equipo dedicado.</p>
+        <ul class="pricing-card__list">
+          <li>Automatizaciones ilimitadas</li>
+          <li>Equipo dedicado asignado</li>
+          <li>Integraciones personalizadas</li>
+          <li>Soporte 24/7</li>
+          <li>SLA garantizado</li>
+          <li>Onboarding presencial</li>
+          <li>Acceso a API propia</li>
+        </ul>
+        <a href="#contacto" class="btn btn--ghost btn--full">Hablar con ventas &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Testimonios</span>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="testi__grid">
+      <div class="testi-card reveal">
+        <div class="testi-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Pasamos de dedicar 3 días al mes a cerrar facturas a hacerlo en 20 minutos. El ROI fue inmediato desde la primera semana. No me imagino volver atrás.&rdquo;</p>
+        <div class="testi-card__author">
+          <div class="testi-card__avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">CM</div>
+          <div>
+            <strong>Carlos Martínez</strong>
+            <span>Director Financiero, TechSolutions</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card testi-card--hi reveal">
+        <div class="testi-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Triplicamos nuestra capacidad de atención al cliente sin contratar a nadie más. Respondemos el doble de rápido y con más calidad. El negocio ha crecido un 40% en 6 meses.&rdquo;</p>
+        <div class="testi-card__author">
+          <div class="testi-card__avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4)">LG</div>
+          <div>
+            <strong>Laura García</strong>
+            <span>CEO, Boutique Digital Madrid</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Ahorramos &euro;8,000 al mes desde el primer trimestre. JM Productions no es un gasto, es la mejor inversión que hemos hecho en 5 años de empresa.&rdquo;</p>
+        <div class="testi-card__author">
+          <div class="testi-card__avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">MP</div>
+          <div>
+            <strong>Marcos Pérez</strong>
+            <span>Fundador, Agencia Crece360</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== GUARANTEE ====== -->
+<section class="guarantee">
+  <div class="container guarantee__inner reveal">
+    <div class="guarantee__icon">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M26 4L6 14v13c0 10.5 8 20.3 20 23 12-2.7 20-12.5 20-23V14L26 4z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 26l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="guarantee__text">
+      <h2>Garantía de resultados a 30 días</h2>
+      <p>Si en 30 días no ves una mejora medible en tus procesos, te devolvemos cada euro. Sin preguntas, sin letra pequeña. Así de seguros estamos de nuestro trabajo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Preguntas frecuentes</span>
+      <h2 class="section-title">Todo lo que necesitas saber</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq-item reveal">
+        <button class="faq-item__q" aria-expanded="false">
+          &iquest;Cuánto tiempo tarda en estar todo funcionando?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__a">
+          <p>La primera automatización suele estar activa en 72 horas. Un proyecto completo con varias integraciones tarda entre 1 y 3 semanas según la complejidad del negocio.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-item__q" aria-expanded="false">
+          &iquest;Necesito conocimientos técnicos?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__a">
+          <p>No. Nosotros nos encargamos de todo: diseño, implementación y mantenimiento. Tú solo nos dices qué quieres mejorar y nosotros lo hacemos realidad sin que toques nada técnico.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-item__q" aria-expanded="false">
+          &iquest;Qué pasa si quiero cambiar o añadir una automatización?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__a">
+          <p>Puedes pedir cambios en cualquier momento. Las revisiones y ajustes están incluidos en todos los planes. Tu negocio evoluciona y tus automatizaciones también.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-item__q" aria-expanded="false">
+          &iquest;Mis datos están seguros?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__a">
+          <p>Absolutamente. Trabajamos con herramientas líder del mercado con certificaciones ISO y GDPR. Firmamos un NDA con todos los clientes antes de empezar a trabajar.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-item__q" aria-expanded="false">
+          &iquest;Con qué herramientas trabáis?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__a">
+          <p>Principalmente Zapier, Make, n8n, HubSpot, ActiveCampaign, Notion, Airtable y más de 50 herramientas. Si ya usas algo, lo integramos. Si no, te recomendamos lo mejor para tu caso.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-item__q" aria-expanded="false">
+          &iquest;Puedo cancelar cuando quiera?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__a">
+          <p>Sí. No hay contratos anuales ni penalizaciones. Trabajamos mes a mes porque confiamos en que los resultados te harán quedarte por tu propia voluntad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FINAL CTA ====== -->
+<section class="final-cta" id="contacto">
+  <div class="final-cta__orb final-cta__orb--1" aria-hidden="true"></div>
+  <div class="final-cta__orb final-cta__orb--2" aria-hidden="true"></div>
+  <div class="container final-cta__inner">
+    <div class="final-cta__text reveal">
+      <span class="section-tag">&iquest;Listo para empezar?</span>
+      <h2>Cada día que esperas<br>es <span class="gradient-text">dinero que no ganas.</span></h2>
+      <p>Agenda una auditoría gratuita de 60 minutos. Te mostramos exactamente qué automatizar y cuánto dinero puedes recuperar. Sin compromiso.</p>
+      <div class="final-cta__promises">
+        <div class="promise-item">&#10003; Auditoría 100% gratuita</div>
+        <div class="promise-item">&#10003; Resultados en 48h</div>
+        <div class="promise-item">&#10003; Sin compromiso</div>
+        <div class="promise-item">&#10003; Garantía 30 días</div>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fNombre">Nombre completo</label>
+          <input type="text" id="fNombre" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="fEmpresa">Empresa</label>
+          <input type="text" id="fEmpresa" name="empresa" placeholder="Nombre de tu empresa" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fEmail">Email profesional</label>
+        <input type="email" id="fEmail" name="email" placeholder="tu@empresa.com" required />
+      </div>
+      <div class="form-group">
+        <label for="fFact">Facturación anual aproximada</label>
+        <select id="fFact" name="facturacion">
+          <option value="">Selecciona un rango</option>
+          <option>Menos de &euro;100K</option>
+          <option>&euro;100K &ndash; &euro;500K</option>
+          <option>&euro;500K &ndash; &euro;1M</option>
+          <option>&euro;1M &ndash; &euro;5M</option>
+          <option>Más de &euro;5M</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fMensaje">&iquest;Cuál es tu mayor problema operativo?</label>
+        <textarea id="fMensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué tareas te quitan más tiempo o dónde sientes que pierdes más dinero..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full btn--lg">Agenda mi auditoría gratuita &rarr;</button>
+      <p class="form-note">&#128274; Tus datos están seguros. Nunca compartimos información con terceros.</p>
+      <div class="form-success" id="formSuccess">&#9989; Mensaje recibido. Te contactaremos en menos de 24 horas.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container footer__top">
+    <div class="footer__brand">
       <a href="#" class="nav__logo">
-        <span class="logo-jm">JM</span><span class="logo-prod">Productions</span>
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#lg2)"/>
+          <path d="M8 17L13 12L18 17L23 12" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 22L13 17L18 22L23 17" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+          <defs><linearGradient id="lg2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
+        <span>JM <strong>Productions</strong></span>
       </a>
-      <ul class="nav__links" id="navLinks">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#beneficios">Beneficios</a></li>
+      <p>Automatizamos tu negocio para que<br>puedas crecer sin límites.</p>
+      <a href="mailto:jeremy2007simon@gmail.com" class="footer__email">jeremy2007simon@gmail.com</a>
+    </div>
+    <div class="footer__col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Ventas &amp; CRM</a></li>
+        <li><a href="#servicios">Email Marketing</a></li>
+        <li><a href="#servicios">Facturación</a></li>
+        <li><a href="#servicios">Atención al Cliente</a></li>
+        <li><a href="#servicios">Datos &amp; Reportes</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#proceso">Cómo funciona</a></li>
+        <li><a href="#precios">Planes y precios</a></li>
+        <li><a href="#roi">Calculadora ROI</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <a href="#contacto" class="btn btn--nav">Habla con nosotros</a>
-      <button class="nav__burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </nav>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span>&copy; 2025 JM Productions. Todos los derechos reservados.</span>
+      <span>Automatizaciones &middot; Integraciones &middot; Crecimiento</span>
+    </div>
+  </div>
+</footer>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero__bg">
-      <div class="hero__glow hero__glow--1"></div>
-      <div class="hero__glow hero__glow--2"></div>
-      <div class="hero__grid"></div>
-    </div>
-    <div class="container hero__content">
-      <div class="hero__badge">Automatizaciones inteligentes</div>
-      <h1 class="hero__title">
-        Recupera tu tiempo.<br/>
-        <span class="gradient-text">Multiplica tus ganancias.</span>
-      </h1>
-      <p class="hero__sub">
-        En JM Productions automatizamos las tareas repetitivas de tu negocio para que
-        puedas enfocarte en lo que realmente importa: <strong>crecer y ganar más.</strong>
-      </p>
-      <div class="hero__ctas">
-        <a href="#contacto" class="btn btn--primary">Empieza a automatizar</a>
-        <a href="#como-funciona" class="btn btn--ghost">Ver cómo funciona</a>
-      </div>
-      <div class="hero__stats">
-        <div class="stat">
-          <span class="stat__num" data-target="80">0</span><span class="stat__unit">%</span>
-          <span class="stat__label">de tareas automatizables</span>
-        </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__num" data-target="40">0</span><span class="stat__unit">h</span>
-          <span class="stat__label">ahorradas por semana</span>
-        </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__num" data-target="3">0</span><span class="stat__unit">x</span>
-          <span class="stat__label">más productividad</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="services" id="servicios">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Servicios</span>
-        <h2 class="section-title">¿Qué automatizamos para ti?</h2>
-        <p class="section-sub">Desde tareas administrativas hasta procesos complejos de ventas y atención al cliente.</p>
-      </div>
-      <div class="services__grid">
-        <div class="service-card">
-          <div class="service-card__icon">&#x2709;&#xFE0F;</div>
-          <h3>Email & Marketing</h3>
-          <p>Campañas automáticas, seguimientos personalizados y nurturing de leads sin levantar un dedo.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">&#x1F4CA;</div>
-          <h3>Gestión de CRM</h3>
-          <p>Actualización de clientes, recordatorios de seguimiento y reportes generados automáticamente.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">&#x1F9FE;</div>
-          <h3>Facturación & Pagos</h3>
-          <p>Facturas automáticas, cobros recurrentes y conciliación bancaria sin errores manuales.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">&#x1F4F1;</div>
-          <h3>Redes Sociales</h3>
-          <p>Publicaciones programadas, respuestas automáticas y reportes de engagement en un solo clic.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">&#x1F916;</div>
-          <h3>Atención al Cliente</h3>
-          <p>Chatbots inteligentes y respuestas automáticas que resuelven el 70% de las consultas.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">&#x1F4DD;</div>
-          <h3>Captura de Datos</h3>
-          <p>Formularios, integración entre apps y flujos de datos sin copiar y pegar nunca más.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how" id="como-funciona">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Proceso</span>
-        <h2 class="section-title">Así de simple es empezar</h2>
-        <p class="section-sub">En tres pasos transformamos tus procesos manuales en flujos automáticos.</p>
-      </div>
-      <div class="how__steps">
-        <div class="step">
-          <div class="step__num">01</div>
-          <div class="step__content">
-            <h3>Analizamos tu negocio</h3>
-            <p>Hacemos una auditoría gratuita para identificar todas las tareas que te roban tiempo y dinero.</p>
-          </div>
-        </div>
-        <div class="step__connector"></div>
-        <div class="step">
-          <div class="step__num">02</div>
-          <div class="step__content">
-            <h3>Diseñamos tu solución</h3>
-            <p>Creamos flujos de automatización personalizados usando las herramientas que ya usas o nuevas.</p>
-          </div>
-        </div>
-        <div class="step__connector"></div>
-        <div class="step">
-          <div class="step__num">03</div>
-          <div class="step__content">
-            <h3>Activamos y escalamos</h3>
-            <p>Lanzamos tus automatizaciones, las monitoreamos y las mejoramos continuamente.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFITS -->
-  <section class="benefits" id="beneficios">
-    <div class="container benefits__inner">
-      <div class="benefits__text">
-        <span class="section-tag">Beneficios</span>
-        <h2 class="section-title">Tu negocio en piloto automático</h2>
-        <p>Cuando eliminas el trabajo manual, tu equipo puede enfocarse en estrategia, ventas y crecimiento real.</p>
-        <ul class="benefits__list">
-          <li>
-            <span class="benefit-icon">&#x23F0;</span>
-            <div>
-              <strong>Ahorra hasta 40 horas por semana</strong>
-              <span>Tareas que antes tomaban días, ahora se hacen en segundos.</span>
-            </div>
-          </li>
-          <li>
-            <span class="benefit-icon">&#x1F4B0;</span>
-            <div>
-              <strong>Reduce costos operativos hasta 60%</strong>
-              <span>Menos errores humanos y menos horas de trabajo manual.</span>
-            </div>
-          </li>
-          <li>
-            <span class="benefit-icon">&#x1F680;</span>
-            <div>
-              <strong>Escala sin contratar más personal</strong>
-              <span>Crece tu negocio sin aumentar proporcionalmente tus gastos.</span>
-            </div>
-          </li>
-          <li>
-            <span class="benefit-icon">&#x1F4C8;</span>
-            <div>
-              <strong>Datos en tiempo real</strong>
-              <span>Toma mejores decisiones con reportes automáticos siempre actualizados.</span>
-            </div>
-          </li>
-        </ul>
-        <a href="#contacto" class="btn btn--primary">Quiero automatizar mi negocio</a>
-      </div>
-      <div class="benefits__visual">
-        <div class="automation-card">
-          <div class="auto-flow">
-            <div class="auto-node auto-node--trigger">
-              <span class="auto-node__icon">&#x26A1;</span>
-              <span>Trigger</span>
-            </div>
-            <div class="auto-arrow">&#x2192;</div>
-            <div class="auto-node">
-              <span class="auto-node__icon">&#x2699;&#xFE0F;</span>
-              <span>Procesar</span>
-            </div>
-            <div class="auto-arrow">&#x2192;</div>
-            <div class="auto-node auto-node--done">
-              <span class="auto-node__icon">&#x2705;</span>
-              <span>Listo</span>
-            </div>
-          </div>
-          <div class="auto-metrics">
-            <div class="auto-metric">
-              <span class="auto-metric__label">Tiempo manual</span>
-              <div class="auto-bar">
-                <div class="auto-bar__fill auto-bar__fill--before"></div>
-              </div>
-              <span class="auto-metric__val">3 horas</span>
-            </div>
-            <div class="auto-metric">
-              <span class="auto-metric__label">Con JM Productions</span>
-              <div class="auto-bar">
-                <div class="auto-bar__fill auto-bar__fill--after"></div>
-              </div>
-              <span class="auto-metric__val">2 min</span>
-            </div>
-          </div>
-          <div class="auto-status">
-            <span class="pulse-dot"></span> Sistema activo — procesando tareas
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>¿Listo para recuperar tu tiempo?</h2>
-      <p>Agenda una consulta gratuita y descubre cuánto tiempo y dinero puedes ahorrar.</p>
-      <a href="#contacto" class="btn btn--primary btn--lg">Agenda tu consulta gratis</a>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contacto">
-    <div class="container contact__inner">
-      <div class="contact__info">
-        <span class="section-tag">Contacto</span>
-        <h2 class="section-title">Hablemos de tu negocio</h2>
-        <p>Cuéntanos qué tareas te quitan más tiempo y te mostraremos cómo automatizarlas.</p>
-        <div class="contact__details">
-          <div class="contact__detail">
-            <span class="contact__icon">&#x1F4E7;</span>
-            <span>jeremy2007simon@gmail.com</span>
-          </div>
-          <div class="contact__detail">
-            <span class="contact__icon">&#x1F30E;</span>
-            <span>Servicio disponible globalmente</span>
-          </div>
-        </div>
-      </div>
-      <form class="contact__form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
-          </div>
-          <div class="form-group">
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Tu empresa" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="tu@email.com" required />
-        </div>
-        <div class="form-group">
-          <label for="mensaje">¿Qué tareas quieres automatizar?</label>
-          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre las tareas repetitivas en tu negocio..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary btn--full">Enviar mensaje &#x2192;</button>
-        <div class="form-success" id="formSuccess">&#x2705; Mensaje enviado. Te contactaremos pronto.</div>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <a href="#" class="nav__logo">
-          <span class="logo-jm">JM</span><span class="logo-prod">Productions</span>
-        </a>
-        <p>Automatizamos tu negocio para que puedas crecer sin límites.</p>
-      </div>
-      <div class="footer__links">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#como-funciona">Cómo funciona</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer__links">
-        <h4>Servicios</h4>
-        <ul>
-          <li><a href="#servicios">Email & Marketing</a></li>
-          <li><a href="#servicios">CRM & Ventas</a></li>
-          <li><a href="#servicios">Facturación</a></li>
-          <li><a href="#servicios">Atención al Cliente</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="container">
-        <span>&copy; 2025 JM Productions. Todos los derechos reservados.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
