@@ -119,7 +119,7 @@ document.querySelectorAll('.faq-item__q').forEach(btn => {
   });
 });
 
-// Contact form — sends to jeremy2007simon@gmail.com via Formsubmit.co
+// Contact form — sends to jmproductions863@gmail.com via Formsubmit.co
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('formSuccess');
 
@@ -136,7 +136,7 @@ if (form) {
     data['_subject'] = 'Nueva solicitud de auditoría — JM Productions';
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/jeremy2007simon@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/jmproductions863@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
