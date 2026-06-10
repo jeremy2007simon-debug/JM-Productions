@@ -3,6 +3,10 @@ const { TwitterApi } = require('twitter-api-v2');
 const cron          = require('node-cron');
 const fs            = require('fs');
 const path          = require('path');
+const http          = require('http');
+
+// Health check server — keeps Railway from killing the process
+http.createServer((req, res) => res.end('OK')).listen(process.env.PORT || 3000);
 
 // --- Cliente X ---
 const client = new TwitterApi({
