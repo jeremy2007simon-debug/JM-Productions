@@ -1,0 +1,46 @@
+============================================
+ INSTRUCCIONES PARA ACTIVAR EL SCHEDULER
+============================================
+
+1. CREAR CUENTA DE DESARROLLADOR EN X
+   - Ve a: developer.twitter.com
+   - Crea una app con permisos de lectura y escritura
+   - Genera las 4 claves: API Key, API Secret, Access Token, Access Secret
+
+2. CREAR EL ARCHIVO .env
+   Crea un archivo llamado ".env" en la carpeta /social con este contenido:
+
+   X_API_KEY=tu_api_key_aqui
+   X_API_SECRET=tu_api_secret_aqui
+   X_ACCESS_TOKEN=tu_access_token_aqui
+   X_ACCESS_SECRET=tu_access_secret_aqui
+
+   (Nunca subas este archivo a GitHub — ya esta en .gitignore)
+
+3. INSTALAR DEPENDENCIAS
+   Abre la terminal en la carpeta /social y ejecuta:
+   npm install
+
+4. ACTIVAR EL SCHEDULER
+   npm start
+
+   El sistema publicara automaticamente:
+   - 9:00  — Post 1 del dia
+   - 12:00 — Post 2 del dia
+   - 15:00 — Post 3 del dia
+   - 19:00 — Post 4 del dia
+
+   El banco tiene 28 posts unicos. El ciclo completo dura 7 dias.
+   Luego vuelve a empezar desde el post 1.
+
+5. PARA INSTAGRAM
+   Instagram requiere una cuenta de empresa + Meta Developer App.
+   Contacta con nosotros para la configuracion completa.
+
+6. PARA EJECUTAR EN LA NUBE (24/7)
+   Opciones recomendadas:
+   - Railway.app (gratis hasta 500h/mes)
+   - Render.com (gratis con limitaciones)
+   - VPS de Hostinger (~3 EUR/mes)
+
+============================================

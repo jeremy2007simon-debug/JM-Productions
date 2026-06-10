@@ -1,0 +1,15 @@
+{
+  "name": "jm-productions-social-scheduler",
+  "version": "1.0.0",
+  "description": "Scheduler automatico de posts para X (Twitter) — JM Productions",
+  "main": "scheduler.js",
+  "scripts": {
+    "start": "node scheduler.js",
+    "post-now": "node -e \"require('./scheduler.js')\""
+  },
+  "dependencies": {
+    "twitter-api-v2": "^1.17.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.5"
+  }
+}
