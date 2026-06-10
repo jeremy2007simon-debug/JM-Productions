@@ -119,23 +119,40 @@ document.querySelectorAll('.faq-item__q').forEach(btn => {
   });
 });
 
-// Contact form
+// Contact form — sends to jeremy2007simon@gmail.com via Formsubmit.co
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('formSuccess');
 
 if (form) {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type=submit]');
     const original = submitBtn.textContent;
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
-    setTimeout(() => {
-      successMsg.classList.add('show');
-      form.reset();
+
+    const data = {};
+    new FormData(form).forEach(function(value, key) { data[key] = value; });
+    data['_subject'] = 'Nueva solicitud de auditoría — JM Productions';
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/jeremy2007simon@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        successMsg.classList.add('show');
+        form.reset();
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        alert('Error al enviar. Por favor, inténtalo de nuevo.');
+      }
+    } catch (err) {
+      alert('Error de conexión. Por favor, inténtalo de nuevo.');
+    } finally {
       submitBtn.textContent = original;
       submitBtn.disabled = false;
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 1000);
+    }
   });
 }
