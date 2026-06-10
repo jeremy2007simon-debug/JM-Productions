@@ -1582,6 +1582,73 @@ select option { background: #0c1628; color: var(--text); }
 }
 
 /* ===========================================
+   SOCIAL LINKS
+=========================================== */
+.footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border-hi);
+  background: rgba(255,255,255,.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: all .22s var(--ease);
+  flex-shrink: 0;
+}
+.social-link:hover {
+  color: var(--text);
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  transform: translateY(-2px);
+}
+.social-link--ig:hover {
+  color: #e1306c;
+  border-color: rgba(225,48,108,.4);
+}
+
+.final-cta__social-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.final-cta__social-label {
+  font-size: .82rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border-hi);
+  background: rgba(255,255,255,.04);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all .22s var(--ease);
+}
+.social-pill:hover {
+  color: var(--text);
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  transform: translateY(-1px);
+}
+
+/* ===========================================
    RESPONSIVE
 =========================================== */
 @media (max-width: 1040px) {
