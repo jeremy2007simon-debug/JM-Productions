@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#040814"/>
+      <stop offset="100%" stop-color="#07101f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f1e3d"/>
+      <stop offset="100%" stop-color="#0c1628"/>
+    </linearGradient>
+    <linearGradient id="orb1g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="orb2g" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="80"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="65"/></filter>
+    <clipPath id="clip"><rect width="1080" height="1080"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Orbs -->
+  <g clip-path="url(#clip)">
+    <circle cx="150" cy="200" r="460" fill="url(#orb1g)" filter="url(#blur1)"/>
+    <circle cx="980" cy="900" r="360" fill="url(#orb2g)" filter="url(#blur2)"/>
+  </g>
+
+  <!-- Grid -->
+  <g opacity="0.03">
+    <line x1="0" y1="108" x2="1080" y2="108" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="216" x2="1080" y2="216" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="324" x2="1080" y2="324" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="432" x2="1080" y2="432" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="540" x2="1080" y2="540" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="648" x2="1080" y2="648" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="756" x2="1080" y2="756" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="864" x2="1080" y2="864" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="972" x2="1080" y2="972" stroke="#6366f1" stroke-width="1"/>
+    <line x1="108" y1="0" x2="108" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="216" y1="0" x2="216" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="324" y1="0" x2="324" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="432" y1="0" x2="432" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="540" y1="0" x2="540" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="648" y1="0" x2="648" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="756" y1="0" x2="756" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="864" y1="0" x2="864" y2="1080" stroke="#6366f1" stroke-width="1"/>
+    <line x1="972" y1="0" x2="972" y2="1080" stroke="#6366f1" stroke-width="1"/>
+  </g>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1080" height="4" fill="url(#accent)"/>
+
+  <!-- Category tag -->
+  <rect x="60" y="60" width="170" height="40" rx="20" fill="rgba(99,102,241,0.14)" stroke="rgba(99,102,241,0.32)" stroke-width="1"/>
+  <text x="145" y="85" font-family="-apple-system, system-ui, sans-serif" font-size="15" font-weight="700" fill="#a5b4fc" text-anchor="middle" letter-spacing="2">CONSEJO</text>
+
+  <!-- Logo top right -->
+  <g transform="translate(990, 60)">
+    <rect width="44" height="44" rx="11" fill="url(#accent)"/>
+    <polyline points="8,25 17,15 26,25 36,15" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="8,33 17,23 26,33 36,23" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+  </g>
+
+  <!-- Headline -->
+  <text x="60" y="208" font-family="-apple-system, system-ui, sans-serif" font-size="66" font-weight="900" fill="#eef2ff" letter-spacing="-2">5 procesos que</text>
+  <text x="60" y="284" font-family="-apple-system, system-ui, sans-serif" font-size="66" font-weight="900" fill="#eef2ff" letter-spacing="-2">debes automatizar</text>
+  <text x="60" y="360" font-family="-apple-system, system-ui, sans-serif" font-size="66" font-weight="900" fill="url(#accent)" letter-spacing="-2">esta semana.</text>
+
+  <!-- Divider -->
+  <rect x="60" y="392" width="500" height="2" rx="1" fill="url(#accent)" opacity="0.3"/>
+
+  <!-- List items -->
+  <!-- Item 1 -->
+  <rect x="60" y="418" width="36" height="36" rx="10" fill="url(#accent)"/>
+  <text x="78" y="443" font-family="-apple-system, system-ui, sans-serif" font-size="18" font-weight="800" fill="white" text-anchor="middle">1</text>
+  <text x="114" y="443" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="700" fill="#eef2ff">Seguimiento de leads</text>
+  <text x="114" y="474" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b7fa3">Nunca m&#225;s un cliente sin respuesta</text>
+
+  <!-- Item 2 -->
+  <rect x="60" y="508" width="36" height="36" rx="10" fill="url(#accent)"/>
+  <text x="78" y="533" font-family="-apple-system, system-ui, sans-serif" font-size="18" font-weight="800" fill="white" text-anchor="middle">2</text>
+  <text x="114" y="533" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="700" fill="#eef2ff">Facturaci&#243;n autom&#225;tica</text>
+  <text x="114" y="564" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b7fa3">Cobra sin tocar nada manualmente</text>
+
+  <!-- Item 3 -->
+  <rect x="60" y="598" width="36" height="36" rx="10" fill="url(#accent)"/>
+  <text x="78" y="623" font-family="-apple-system, system-ui, sans-serif" font-size="18" font-weight="800" fill="white" text-anchor="middle">3</text>
+  <text x="114" y="623" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="700" fill="#eef2ff">Onboarding de clientes</text>
+  <text x="114" y="654" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b7fa3">Bienvenidas perfectas en piloto autom&#225;tico</text>
+
+  <!-- Item 4 -->
+  <rect x="60" y="688" width="36" height="36" rx="10" fill="url(#accent)"/>
+  <text x="78" y="713" font-family="-apple-system, system-ui, sans-serif" font-size="18" font-weight="800" fill="white" text-anchor="middle">4</text>
+  <text x="114" y="713" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="700" fill="#eef2ff">Reportes semanales</text>
+  <text x="114" y="744" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b7fa3">KPIs en tu email cada lunes solos</text>
+
+  <!-- Item 5 -->
+  <rect x="60" y="778" width="36" height="36" rx="10" fill="url(#accent)"/>
+  <text x="78" y="803" font-family="-apple-system, system-ui, sans-serif" font-size="18" font-weight="800" fill="white" text-anchor="middle">5</text>
+  <text x="114" y="803" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="700" fill="#eef2ff">Atenci&#243;n al cliente 24/7</text>
+  <text x="114" y="834" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b7fa3">Chatbot que resuelve el 70% de dudas</text>
+
+  <!-- Bottom card -->
+  <rect x="60" y="886" width="960" height="130" rx="20" fill="url(#cardBg)" stroke="rgba(99,102,241,0.22)" stroke-width="1"/>
+  <rect x="60" y="886" width="960" height="2" rx="1" fill="url(#accent)" opacity="0.6"/>
+
+  <text x="540" y="938" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="700" fill="#eef2ff" text-anchor="middle">&#191;Cu&#225;l de estos te roba m&#225;s tiempo?</text>
+  <text x="540" y="974" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="500" fill="#6b7fa3" text-anchor="middle">Coment&#225;noslo &#128071; Auditor&#237;a gratuita en bio</text>
+  <text x="540" y="1004" font-family="-apple-system, system-ui, sans-serif" font-size="17" font-weight="400" fill="rgba(255,255,255,0.2)" text-anchor="middle">@jmproductions.ic</text>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="1076" width="1080" height="4" fill="url(#accent)"/>
+
+</svg>
