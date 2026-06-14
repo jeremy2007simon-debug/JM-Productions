@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JM CRM · Demo Inmobiliaria</title>
+<title>Propflow · Demo Inmobiliaria</title>
 <style>
 :root {
   --bg: #080810;
@@ -24,6 +24,7 @@
   --ease: cubic-bezier(.25,.46,.45,.94);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
   background: var(--bg);
@@ -33,56 +34,157 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
-.orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .35; animation: drift 18s ease-in-out infinite; }
+
+/* ── ORBS ── */
+.orbs {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .35;
+  animation: drift 18s ease-in-out infinite;
+}
 .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #7c6fff 0%, transparent 70%); top: -150px; left: -100px; animation-delay: 0s; }
 .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #22c55e 0%, transparent 70%); top: 40%; right: -120px; animation-delay: -6s; }
 .orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, #60a5fa 0%, transparent 70%); bottom: -100px; left: 30%; animation-delay: -12s; }
-@keyframes drift { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -40px) scale(1.05); } 66% { transform: translate(-20px, 30px) scale(.95); } }
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.05); }
+  66% { transform: translate(-20px, 30px) scale(.95); }
+}
+
+/* ── LAYOUT ── */
 .wrap { position: relative; z-index: 1; }
-header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,16,.8); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid var(--border); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(8,8,16,.8);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #7c6fff, #b49eff); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; color: #fff; box-shadow: 0 4px 14px rgba(124,111,255,.4); }
+.logo-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, #7c6fff, #b49eff);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 14px; color: #fff;
+  box-shadow: 0 4px 14px rgba(124,111,255,.4);
+}
+.logo-info { }
 .logo-name { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
 .logo-by { font-size: 10px; color: var(--muted); font-weight: 500; }
 .header-right { display: flex; align-items: center; gap: 10px; }
-.agency-tag { font-size: 12px; font-weight: 600; color: var(--muted); background: var(--glass2); border: 1px solid var(--border); padding: 5px 13px; border-radius: 8px; }
-.live-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 13px; border-radius: 100px; background: rgba(124,111,255,.12); border: 1px solid rgba(124,111,255,.28); font-size: 11px; font-weight: 800; color: var(--accent2); letter-spacing: .03em; }
+.agency-tag {
+  font-size: 12px; font-weight: 600; color: var(--muted);
+  background: var(--glass2); border: 1px solid var(--border);
+  padding: 5px 13px; border-radius: 8px;
+}
+.live-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 100px;
+  background: rgba(124,111,255,.12);
+  border: 1px solid rgba(124,111,255,.28);
+  font-size: 11px; font-weight: 800; color: var(--accent2);
+  letter-spacing: .03em;
+}
 .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: blink 1.8s ease-in-out infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+/* ── PAGE ── */
 .page { padding: 24px; max-width: 1440px; margin: 0 auto; }
-.section-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; margin-top: 28px; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .1em;
+  margin-bottom: 12px; margin-top: 28px;
+}
 .section-label:first-child { margin-top: 0; }
+
+/* ── KPI ── */
 .kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-.kpi { background: var(--glass); border: 1px solid var(--border); border-radius: 18px; padding: 20px; position: relative; overflow: hidden; transition: border-color .25s var(--ease), transform .25s var(--ease); cursor: default; }
+.kpi {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  position: relative; overflow: hidden;
+  transition: border-color .25s var(--ease), transform .25s var(--ease);
+  cursor: default;
+}
 .kpi:hover { border-color: var(--border-hi); transform: translateY(-2px); }
-.kpi::before { content: ''; position: absolute; inset: 0; background: var(--kpi-glow, transparent); pointer-events: none; }
+.kpi::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--kpi-glow, transparent);
+  pointer-events: none;
+}
 .kpi-g::before { --kpi-glow: radial-gradient(ellipse at 100% 0%, rgba(34,197,94,.08) 0%, transparent 60%); }
 .kpi-b::before { --kpi-glow: radial-gradient(ellipse at 100% 0%, rgba(96,165,250,.08) 0%, transparent 60%); }
 .kpi-p::before { --kpi-glow: radial-gradient(ellipse at 100% 0%, rgba(192,132,252,.08) 0%, transparent 60%); }
 .kpi-y::before { --kpi-glow: radial-gradient(ellipse at 100% 0%, rgba(245,158,11,.08) 0%, transparent 60%); }
-.kpi-ico { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 14px; }
+.kpi-ico {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; margin-bottom: 14px;
+}
 .kpi-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
 .kpi-val { font-size: 30px; font-weight: 900; letter-spacing: -.03em; margin-bottom: 10px; }
 .tag-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 100px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 100px;
+}
 .chip-g { background: var(--green-bg); color: var(--green); }
 .chip-r { background: var(--red-bg); color: var(--red); }
+.chip-b { background: var(--blue-bg); color: var(--blue); }
 .kpi-sub { font-size: 11px; color: var(--muted); margin-left: 4px; }
-.panel { background: var(--glass); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transition: border-color .25s var(--ease); }
+
+/* ── PANEL ── */
+.panel {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color .25s var(--ease);
+}
 .panel:hover { border-color: var(--border-hi); }
-.phead { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.phead {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
 .ptitle { font-size: 14px; font-weight: 800; letter-spacing: -.01em; }
 .psub { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+/* ── PIPELINE ── */
 .pipeline-wrap { overflow-x: auto; }
 .pipeline { display: grid; grid-template-columns: repeat(5, minmax(160px, 1fr)); }
 .pcol { border-right: 1px solid var(--border); }
 .pcol:last-child { border-right: none; }
-.pcol-head { padding: 11px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.pcol-head {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
 .pcol-name { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-.pcol-n { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
+.pcol-n {
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800;
+}
 .pcards { padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 200px; }
-.pcard { background: var(--glass2); border: 1px solid var(--border); border-radius: 11px; padding: 12px; cursor: pointer; transition: all .2s var(--ease); }
+.pcard {
+  background: var(--glass2);
+  border: 1px solid var(--border);
+  border-radius: 11px; padding: 12px;
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
 .pcard:hover { border-color: var(--border-hi); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
 .pcard-name { font-size: 12px; font-weight: 800; margin-bottom: 3px; }
 .pcard-prop { font-size: 11px; color: var(--muted); margin-bottom: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -90,19 +192,35 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,16,.8); ba
 .pcard-val { font-size: 12px; font-weight: 900; color: var(--green); }
 .avatar { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; color: #fff; }
 .hot { font-size: 9px; font-weight: 900; background: var(--red-bg); color: var(--red); border-radius: 5px; padding: 2px 6px; text-transform: uppercase; letter-spacing: .04em; }
+
+/* ── GRID 2 ── */
 .g2 { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
 .g3 { display: grid; grid-template-columns: 1fr 1fr 300px; gap: 16px; }
+
+/* ── TABLE ── */
 .tscroll { overflow-x: auto; padding: 0 20px 20px; }
 table { width: 100%; border-collapse: collapse; min-width: 680px; }
-thead th { text-align: left; font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: 10px 10px; border-bottom: 1px solid var(--border); }
-tbody td { padding: 13px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+thead th {
+  text-align: left; font-size: 10px; font-weight: 800;
+  color: var(--muted); text-transform: uppercase; letter-spacing: .08em;
+  padding: 10px 10px; border-bottom: 1px solid var(--border);
+}
+tbody td {
+  padding: 13px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
 tbody tr:last-child td { border-bottom: none; }
 tbody tr { transition: background .15s; }
 tbody tr:hover td { background: rgba(255,255,255,.025); }
 .tname { font-size: 13px; font-weight: 800; }
 .temail { font-size: 11px; color: var(--muted); margin-top: 1px; }
 .ttag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 5px; background: rgba(255,255,255,.07); color: var(--muted); margin-right: 3px; }
-.status { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.status {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 700; white-space: nowrap;
+}
 .status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 .st0 { background: var(--blue-bg); color: var(--blue); }
 .st1 { background: var(--yellow-bg); color: var(--yellow); }
@@ -114,7 +232,15 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 .score-bar { width: 56px; height: 4px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
 .score-fill { height: 100%; border-radius: 3px; }
 .score-n { font-size: 12px; font-weight: 800; color: var(--muted); }
-.act { display: flex; gap: 13px; padding: 14px 20px; border-bottom: 1px solid var(--border); transition: background .15s; }
+
+/* ── ACTIVITY ── */
+.act-list { }
+.act {
+  display: flex; gap: 13px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background .15s;
+}
 .act:last-child { border-bottom: none; }
 .act:hover { background: rgba(255,255,255,.02); }
 .act-ico { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; margin-top: 1px; }
@@ -122,6 +248,8 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 .act-text { font-size: 13px; line-height: 1.45; }
 .act-text strong { font-weight: 700; }
 .act-time { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+/* ── CHART ── */
 .chart-body { padding: 18px 20px; }
 .chart-title { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
 .bars { display: flex; align-items: flex-end; gap: 10px; height: 100px; margin-bottom: 6px; }
@@ -136,75 +264,443 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 .stat-row { display: flex; justify-content: space-between; font-size: 12px; }
 .stat-row span:first-child { color: var(--muted); }
 .stat-row span:last-child { font-weight: 800; }
+
+/* ── AUTO ── */
 .auto-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
-.auto { background: var(--glass2); border: 1px solid var(--border); border-radius: 12px; padding: 13px 14px; transition: border-color .2s; }
+.auto {
+  background: var(--glass2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 13px 14px;
+  transition: border-color .2s;
+}
 .auto:hover { border-color: var(--border-hi); }
 .auto-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
 .auto-name { font-size: 13px; font-weight: 800; }
 .on-badge { font-size: 9px; font-weight: 900; background: var(--green-bg); color: var(--green); border-radius: 100px; padding: 2px 8px; letter-spacing: .05em; }
 .auto-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
 .auto-desc strong { color: var(--text); font-weight: 700; }
+
+/* ── ALERTS ── */
 .alerts-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-.alert { display: flex; align-items: flex-start; gap: 10px; padding: 12px 13px; border-radius: 11px; background: var(--glass2); border: 1px solid var(--border); transition: border-color .2s; }
+.alert {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 13px; border-radius: 11px;
+  background: var(--glass2); border: 1px solid var(--border);
+  transition: border-color .2s;
+}
 .alert.urg { border-color: rgba(239,68,68,.25); background: rgba(239,68,68,.06); }
 .alert.warn { border-color: rgba(245,158,11,.2); }
 .alert:hover { border-color: var(--border-hi); }
 .alert-ico { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.alert-body { }
 .alert-text { font-size: 12px; line-height: 1.45; }
 .alert-text strong { font-weight: 700; }
 .alert-time { font-size: 11px; color: var(--muted); margin-top: 2px; }
-footer { text-align: center; padding: 28px 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 28px 24px;
+  font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+}
 footer strong { color: var(--accent2); font-weight: 700; }
 footer a { color: var(--accent2); text-decoration: none; font-weight: 600; }
-@media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(2,1fr); } .g2 { grid-template-columns: 1fr; } .g3 { grid-template-columns: 1fr; } .pipeline { grid-template-columns: repeat(3, minmax(160px,1fr)); } }
-@media (max-width: 600px) { .kpi-grid { grid-template-columns: repeat(2,1fr); } .kpi-val { font-size: 24px; } .page { padding: 16px; } header { padding: 0 16px; } .agency-tag { display: none; } .pipeline { grid-template-columns: repeat(2, minmax(160px,1fr)); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .g2 { grid-template-columns: 1fr; }
+  .g3 { grid-template-columns: 1fr; }
+  .pipeline { grid-template-columns: repeat(3, minmax(160px,1fr)); }
+}
+@media (max-width: 600px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .kpi-val { font-size: 24px; }
+  .page { padding: 16px; }
+  header { padding: 0 16px; }
+  .agency-tag { display: none; }
+  .pipeline { grid-template-columns: repeat(2, minmax(160px,1fr)); }
+}
 </style>
 </head>
 <body>
-<div class="orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+
+<!-- ORBS -->
+<div class="orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
 <div class="wrap">
+
+<!-- HEADER -->
 <header>
   <div class="logo">
-    <div class="logo-mark">JM</div>
-    <div><div class="logo-name">JM CRM</div><div class="logo-by">by JM Productions</div></div>
+    <div class="logo-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 9L10 2L17 9V18H13V12H7V18H3V9Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="rgba(255,255,255,.18)"/></svg></div>
+    <div class="logo-info">
+      <div class="logo-name">Propflow</div>
+      <div class="logo-by">CRM Inmobiliario</div>
+    </div>
   </div>
   <div class="header-right">
     <div class="agency-tag">Olympo Inmobiliaria · Costa Adeje</div>
     <div class="live-badge"><div class="live-dot"></div>DEMO EN VIVO</div>
   </div>
 </header>
+
+<!-- PAGE -->
 <div class="page">
+
+  <!-- KPIs -->
   <div class="section-label">Resumen del mes</div>
   <div class="kpi-grid">
-    <div class="kpi kpi-g"><div class="kpi-ico" style="background:var(--green-bg)">💰</div><div class="kpi-label">Facturación</div><div class="kpi-val" style="color:var(--green)">€847K</div><div class="tag-row"><span class="chip chip-g">↑ 23%</span><span class="kpi-sub">vs. mes anterior</span></div></div>
-    <div class="kpi kpi-b"><div class="kpi-ico" style="background:var(--blue-bg)">👥</div><div class="kpi-label">Leads nuevos</div><div class="kpi-val" style="color:var(--blue)">23</div><div class="tag-row"><span class="chip chip-g">↑ 12%</span><span class="kpi-sub">esta semana</span></div></div>
-    <div class="kpi kpi-p"><div class="kpi-ico" style="background:var(--purple-bg)">🎯</div><div class="kpi-label">Tasa de cierre</div><div class="kpi-val" style="color:var(--purple)">18%</div><div class="tag-row"><span class="chip chip-g">↑ 4pp</span><span class="kpi-sub">sector: 9%</span></div></div>
-    <div class="kpi kpi-y"><div class="kpi-ico" style="background:var(--yellow-bg)">🏠</div><div class="kpi-label">Propiedades activas</div><div class="kpi-val" style="color:var(--yellow)">67</div><div class="tag-row"><span class="chip chip-r">↓ 3</span><span class="kpi-sub">12 vendidas</span></div></div>
+
+    <div class="kpi kpi-g">
+      <div class="kpi-ico" style="background:var(--green-bg)">💰</div>
+      <div class="kpi-label">Facturación</div>
+      <div class="kpi-val" style="color:var(--green)">€847K</div>
+      <div class="tag-row">
+        <span class="chip chip-g">↑ 23%</span>
+        <span class="kpi-sub">vs. mes anterior</span>
+      </div>
+    </div>
+
+    <div class="kpi kpi-b">
+      <div class="kpi-ico" style="background:var(--blue-bg)">👥</div>
+      <div class="kpi-label">Leads nuevos</div>
+      <div class="kpi-val" style="color:var(--blue)">23</div>
+      <div class="tag-row">
+        <span class="chip chip-g">↑ 12%</span>
+        <span class="kpi-sub">esta semana</span>
+      </div>
+    </div>
+
+    <div class="kpi kpi-p">
+      <div class="kpi-ico" style="background:var(--purple-bg)">🎯</div>
+      <div class="kpi-label">Tasa de cierre</div>
+      <div class="kpi-val" style="color:var(--purple)">18%</div>
+      <div class="tag-row">
+        <span class="chip chip-g">↑ 4pp</span>
+        <span class="kpi-sub">sector: 9%</span>
+      </div>
+    </div>
+
+    <div class="kpi kpi-y">
+      <div class="kpi-ico" style="background:var(--yellow-bg)">🏠</div>
+      <div class="kpi-label">Propiedades activas</div>
+      <div class="kpi-val" style="color:var(--yellow)">67</div>
+      <div class="tag-row">
+        <span class="chip chip-r">↓ 3</span>
+        <span class="kpi-sub">12 vendidas</span>
+      </div>
+    </div>
+
   </div>
+
+  <!-- PIPELINE -->
   <div class="section-label" style="margin-top:28px">Pipeline de ventas</div>
   <div class="panel">
-    <div class="phead"><div class="ptitle">Pipeline</div><div class="psub">47 leads activos · €4.2M potencial total</div></div>
-    <div class="pipeline-wrap"><div class="pipeline">
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--blue)">Nuevo</span><span class="pcol-n" style="background:var(--blue-bg);color:var(--blue)">8</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Henrik Larsson</div><div class="pcard-prop">Villa 4H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€1.2M</span><span class="avatar" style="background:#7c6fff">ML</span></div></div><div class="pcard"><div class="pcard-name">Sarah Mitchell</div><div class="pcard-prop">Apto 2H · Fañabé</div><div class="pcard-foot"><span class="pcard-val">€285K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div><div class="pcard"><div class="pcard-name">Klaus Werner</div><div class="pcard-prop">Casa 3H · Torviscas</div><div class="pcard-foot"><span class="pcard-val">€540K</span><span class="avatar" style="background:#22c55e">AM</span></div></div></div></div>
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--yellow)">Contactado</span><span class="pcol-n" style="background:var(--yellow-bg);color:var(--yellow)">14</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">James O'Brien</div><div class="pcard-prop">Villa 5H · Palm Mar</div><div class="pcard-foot"><span class="pcard-val">€2.1M</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">Ingrid Svensson</div><div class="pcard-prop">Apto 3H · Playa Paraíso</div><div class="pcard-foot"><span class="pcard-val">€380K</span><span class="avatar" style="background:#7c6fff">ML</span></div></div><div class="pcard"><div class="pcard-name">Pierre Dubois</div><div class="pcard-prop">Apto 2H · Los Cristianos</div><div class="pcard-foot"><span class="pcard-val">€245K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div></div></div>
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--purple)">Reunión</span><span class="pcol-n" style="background:var(--purple-bg);color:var(--purple)">9</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Robert & Anne Klein</div><div class="pcard-prop">Villa 4H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€890K</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">Yuki Tanaka</div><div class="pcard-prop">Apto lujo · El Duque</div><div class="pcard-foot"><span class="pcard-val">€620K</span><span class="avatar" style="background:#22c55e">AM</span></div></div><div class="pcard"><div class="pcard-name">Petra Hoffmann</div><div class="pcard-prop">Villa 3H · Roque del Conde</div><div class="pcard-foot"><span class="pcard-val">€750K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div></div></div>
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--orange)">Propuesta</span><span class="pcol-n" style="background:var(--orange-bg);color:var(--orange)">7</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Mohammed Al-Rashid</div><div class="pcard-prop">Chalet 5H · Bahía Duque</div><div class="pcard-foot"><span class="pcard-val">€3.4M</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">David & Emma Thornton</div><div class="pcard-prop">Casa 3H · San Eugenio</div><div class="pcard-foot"><span class="pcard-val">€475K</span><span class="avatar" style="background:#7c6fff">ML</span></div></div></div></div>
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--green)">Cerrado ✓</span><span class="pcol-n" style="background:var(--green-bg);color:var(--green)">9</span></div><div class="pcards"><div class="pcard" style="border-color:rgba(34,197,94,.25)"><div class="pcard-name">Familia Bergström</div><div class="pcard-prop">Villa 4H · Playa de Fañabé</div><div class="pcard-foot"><span class="pcard-val">€1.05M</span><span style="font-size:10px;color:var(--green);font-weight:800">✓ HOY</span></div></div><div class="pcard" style="border-color:rgba(34,197,94,.15)"><div class="pcard-name">George Williams</div><div class="pcard-prop">Apto 2H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€320K</span><span style="font-size:10px;color:var(--muted)">06 Jun</span></div></div></div></div>
-    </div></div>
+    <div class="phead">
+      <div class="ptitle">Pipeline</div>
+      <div class="psub">47 leads activos · €4.2M potencial total</div>
+    </div>
+    <div class="pipeline-wrap">
+      <div class="pipeline">
+
+        <div class="pcol">
+          <div class="pcol-head">
+            <span class="pcol-name" style="color:var(--blue)">Nuevo</span>
+            <span class="pcol-n" style="background:var(--blue-bg);color:var(--blue)">8</span>
+          </div>
+          <div class="pcards">
+            <div class="pcard">
+              <div class="pcard-name">Henrik Larsson</div>
+              <div class="pcard-prop">Villa 4H · Costa Adeje</div>
+              <div class="pcard-foot"><span class="pcard-val">€1.2M</span><span class="avatar" style="background:#7c6fff">ML</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">Sarah Mitchell</div>
+              <div class="pcard-prop">Apto 2H · Fañabé</div>
+              <div class="pcard-foot"><span class="pcard-val">€285K</span><span class="avatar" style="background:#3b82f6">CR</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">Klaus Werner</div>
+              <div class="pcard-prop">Casa 3H · Torviscas</div>
+              <div class="pcard-foot"><span class="pcard-val">€540K</span><span class="avatar" style="background:#22c55e">AM</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcol">
+          <div class="pcol-head">
+            <span class="pcol-name" style="color:var(--yellow)">Contactado</span>
+            <span class="pcol-n" style="background:var(--yellow-bg);color:var(--yellow)">14</span>
+          </div>
+          <div class="pcards">
+            <div class="pcard">
+              <div class="pcard-name">James O'Brien</div>
+              <div class="pcard-prop">Villa 5H · Palm Mar</div>
+              <div class="pcard-foot"><span class="pcard-val">€2.1M</span><span class="hot">HOT</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">Ingrid Svensson</div>
+              <div class="pcard-prop">Apto 3H · Playa Paraíso</div>
+              <div class="pcard-foot"><span class="pcard-val">€380K</span><span class="avatar" style="background:#7c6fff">ML</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">Pierre Dubois</div>
+              <div class="pcard-prop">Apto 2H · Los Cristianos</div>
+              <div class="pcard-foot"><span class="pcard-val">€245K</span><span class="avatar" style="background:#3b82f6">CR</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcol">
+          <div class="pcol-head">
+            <span class="pcol-name" style="color:var(--purple)">Reunión</span>
+            <span class="pcol-n" style="background:var(--purple-bg);color:var(--purple)">9</span>
+          </div>
+          <div class="pcards">
+            <div class="pcard">
+              <div class="pcard-name">Robert & Anne Klein</div>
+              <div class="pcard-prop">Villa 4H · Costa Adeje</div>
+              <div class="pcard-foot"><span class="pcard-val">€890K</span><span class="hot">HOT</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">Yuki Tanaka</div>
+              <div class="pcard-prop">Apto lujo · El Duque</div>
+              <div class="pcard-foot"><span class="pcard-val">€620K</span><span class="avatar" style="background:#22c55e">AM</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">Petra Hoffmann</div>
+              <div class="pcard-prop">Villa 3H · Roque del Conde</div>
+              <div class="pcard-foot"><span class="pcard-val">€750K</span><span class="avatar" style="background:#3b82f6">CR</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcol">
+          <div class="pcol-head">
+            <span class="pcol-name" style="color:var(--orange)">Propuesta</span>
+            <span class="pcol-n" style="background:var(--orange-bg);color:var(--orange)">7</span>
+          </div>
+          <div class="pcards">
+            <div class="pcard">
+              <div class="pcard-name">Mohammed Al-Rashid</div>
+              <div class="pcard-prop">Chalet 5H · Bahía Duque</div>
+              <div class="pcard-foot"><span class="pcard-val">€3.4M</span><span class="hot">HOT</span></div>
+            </div>
+            <div class="pcard">
+              <div class="pcard-name">David & Emma Thornton</div>
+              <div class="pcard-prop">Casa 3H · San Eugenio</div>
+              <div class="pcard-foot"><span class="pcard-val">€475K</span><span class="avatar" style="background:#7c6fff">ML</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcol">
+          <div class="pcol-head">
+            <span class="pcol-name" style="color:var(--green)">Cerrado ✓</span>
+            <span class="pcol-n" style="background:var(--green-bg);color:var(--green)">9</span>
+          </div>
+          <div class="pcards">
+            <div class="pcard" style="border-color:rgba(34,197,94,.25)">
+              <div class="pcard-name">Familia Bergström</div>
+              <div class="pcard-prop">Villa 4H · Playa de Fañabé</div>
+              <div class="pcard-foot"><span class="pcard-val">€1.05M</span><span style="font-size:10px;color:var(--green);font-weight:800">✓ HOY</span></div>
+            </div>
+            <div class="pcard" style="border-color:rgba(34,197,94,.15)">
+              <div class="pcard-name">George Williams</div>
+              <div class="pcard-prop">Apto 2H · Costa Adeje</div>
+              <div class="pcard-foot"><span class="pcard-val">€320K</span><span style="font-size:10px;color:var(--muted)">06 Jun</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
+
+  <!-- LEADS TABLE + ACTIVITY -->
   <div class="section-label">Leads activos</div>
   <div class="g2" style="margin-bottom:0">
-    <div class="panel"><div class="phead"><div class="ptitle">Todos los leads</div><span style="font-size:12px;font-weight:700;background:var(--blue-bg);color:var(--blue);padding:3px 10px;border-radius:100px">47 total</span></div><div class="tscroll"><table><thead><tr><th>Cliente</th><th>Propiedad</th><th>Presupuesto</th><th>Estado</th><th>Agente</th><th>Score IA</th></tr></thead><tbody><tr><td><div class="tname">Mohammed Al-Rashid</div><div class="temail">m.alrashid@outlook.ae</div></td><td><span class="ttag">Chalet lujo</span><span class="ttag">Bahía Duque</span></td><td style="font-weight:900;color:var(--green)">€3.4M</td><td><span class="status st3">Propuesta</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:94%;background:var(--green)"></div></div><span class="score-n">94</span></div></td></tr><tr><td><div class="tname">James O'Brien</div><div class="temail">james.obrien@gmail.com</div></td><td><span class="ttag">Villa 5H</span><span class="ttag">Palm Mar</span></td><td style="font-weight:900;color:var(--green)">€2.1M</td><td><span class="status st1">Contactado</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:88%;background:var(--green)"></div></div><span class="score-n">88</span></div></td></tr><tr><td><div class="tname">Robert & Anne Klein</div><div class="temail">rklein@web.de</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Adeje Golf</span></td><td style="font-weight:900;color:var(--text)">€890K</td><td><span class="status st2">Reunión</span></td><td><div class="tagent"><span class="avatar" style="background:#3b82f6">CR</span>C. Reyes</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:82%;background:var(--green)"></div></div><span class="score-n">82</span></div></td></tr><tr><td><div class="tname">Henrik Larsson</div><div class="temail">h.larsson@mail.se</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Costa Adeje</span></td><td style="font-weight:900;color:var(--text)">€1.2M</td><td><span class="status st0">Nuevo</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:71%;background:var(--yellow)"></div></div><span class="score-n">71</span></div></td></tr><tr><td><div class="tname">Yuki Tanaka</div><div class="temail">yuki.t@docomo.jp</div></td><td><span class="ttag">Apto lujo</span><span class="ttag">El Duque</span></td><td style="font-weight:900;color:var(--text)">€620K</td><td><span class="status st2">Reunión</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:76%;background:var(--yellow)"></div></div><span class="score-n">76</span></div></td></tr><tr><td><div class="tname">David & Emma Thornton</div><div class="temail">dthornton@bt.co.uk</div></td><td><span class="ttag">Casa 3H</span><span class="ttag">San Eugenio</span></td><td style="font-weight:900;color:var(--text)">€475K</td><td><span class="status st3">Propuesta</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:65%;background:var(--yellow)"></div></div><span class="score-n">65</span></div></td></tr><tr><td><div class="tname">Familia Bergström</div><div class="temail">bergstrom@gmail.com</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Playa Fañabé</span></td><td style="font-weight:900;color:var(--green)">€1.05M</td><td><span class="status st4">Cerrado ✓</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:100%;background:var(--green)"></div></div><span class="score-n">100</span></div></td></tr></tbody></table></div></div>
-    <div class="panel"><div class="phead"><div class="ptitle">Actividad reciente</div></div><div class="act"><div class="act-ico" style="background:var(--green-bg)">🎉</div><div class="act-body"><div class="act-text"><strong>¡Venta cerrada!</strong> Villa Bergström — €1.05M</div><div class="act-time">Hace 23 min · Agente: M. López</div></div></div><div class="act"><div class="act-ico" style="background:var(--blue-bg)">📨</div><div class="act-body"><div class="act-text"><strong>Email automático</strong> enviado a Henrik Larsson</div><div class="act-time">Hace 1h</div></div></div><div class="act"><div class="act-ico" style="background:var(--red-bg)">🔥</div><div class="act-body"><div class="act-text"><strong>Lead HOT:</strong> James O'Brien visitó 7 propiedades en 2 días</div><div class="act-time">Hace 2h</div></div></div><div class="act"><div class="act-ico" style="background:var(--yellow-bg)">📞</div><div class="act-body"><div class="act-text"><strong>Recordatorio:</strong> Llamar a Familia Klein — reunión mañana</div><div class="act-time">Hace 3h</div></div></div><div class="act"><div class="act-ico" style="background:var(--purple-bg)">📋</div><div class="act-body"><div class="act-text"><strong>Propuesta enviada</strong> a Mohammed Al-Rashid — €3.4M</div><div class="act-time">Hace 5h</div></div></div><div class="act" style="border-bottom:none"><div class="act-ico" style="background:var(--green-bg)">💬</div><div class="act-body"><div class="act-text"><strong>WhatsApp:</strong> Yuki Tanaka confirmó reunión viernes</div><div class="act-time">Ayer 16:42</div></div></div></div>
+
+    <div class="panel">
+      <div class="phead">
+        <div class="ptitle">Todos los leads</div>
+        <span style="font-size:12px;font-weight:700;background:var(--blue-bg);color:var(--blue);padding:3px 10px;border-radius:100px">47 total</span>
+      </div>
+      <div class="tscroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Propiedad</th>
+              <th>Presupuesto</th>
+              <th>Estado</th>
+              <th>Agente</th>
+              <th>Score IA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="tname">Mohammed Al-Rashid</div><div class="temail">m.alrashid@outlook.ae</div></td>
+              <td><span class="ttag">Chalet lujo</span><span class="ttag">Bahía Duque</span></td>
+              <td style="font-weight:900;color:var(--green)">€3.4M</td>
+              <td><span class="status st3">Propuesta</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:94%;background:var(--green)"></div></div><span class="score-n">94</span></div></td>
+            </tr>
+            <tr>
+              <td><div class="tname">James O'Brien</div><div class="temail">james.obrien@gmail.com</div></td>
+              <td><span class="ttag">Villa 5H</span><span class="ttag">Palm Mar</span></td>
+              <td style="font-weight:900;color:var(--green)">€2.1M</td>
+              <td><span class="status st1">Contactado</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:88%;background:var(--green)"></div></div><span class="score-n">88</span></div></td>
+            </tr>
+            <tr>
+              <td><div class="tname">Robert & Anne Klein</div><div class="temail">rklein@web.de</div></td>
+              <td><span class="ttag">Villa 4H</span><span class="ttag">Adeje Golf</span></td>
+              <td style="font-weight:900;color:var(--text)">€890K</td>
+              <td><span class="status st2">Reunión</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#3b82f6">CR</span>C. Reyes</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:82%;background:var(--green)"></div></div><span class="score-n">82</span></div></td>
+            </tr>
+            <tr>
+              <td><div class="tname">Henrik Larsson</div><div class="temail">h.larsson@mail.se</div></td>
+              <td><span class="ttag">Villa 4H</span><span class="ttag">Costa Adeje</span></td>
+              <td style="font-weight:900;color:var(--text)">€1.2M</td>
+              <td><span class="status st0">Nuevo</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:71%;background:var(--yellow)"></div></div><span class="score-n">71</span></div></td>
+            </tr>
+            <tr>
+              <td><div class="tname">Yuki Tanaka</div><div class="temail">yuki.t@docomo.jp</div></td>
+              <td><span class="ttag">Apto lujo</span><span class="ttag">El Duque</span></td>
+              <td style="font-weight:900;color:var(--text)">€620K</td>
+              <td><span class="status st2">Reunión</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:76%;background:var(--yellow)"></div></div><span class="score-n">76</span></div></td>
+            </tr>
+            <tr>
+              <td><div class="tname">David & Emma Thornton</div><div class="temail">dthornton@bt.co.uk</div></td>
+              <td><span class="ttag">Casa 3H</span><span class="ttag">San Eugenio</span></td>
+              <td style="font-weight:900;color:var(--text)">€475K</td>
+              <td><span class="status st3">Propuesta</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:65%;background:var(--yellow)"></div></div><span class="score-n">65</span></div></td>
+            </tr>
+            <tr>
+              <td><div class="tname">Familia Bergström</div><div class="temail">bergstrom@gmail.com</div></td>
+              <td><span class="ttag">Villa 4H</span><span class="ttag">Playa Fañabé</span></td>
+              <td style="font-weight:900;color:var(--green)">€1.05M</td>
+              <td><span class="status st4">Cerrado ✓</span></td>
+              <td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td>
+              <td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:100%;background:var(--green)"></div></div><span class="score-n">100</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Actividad reciente</div></div>
+      <div class="act-list">
+        <div class="act"><div class="act-ico" style="background:var(--green-bg)">🎉</div><div class="act-body"><div class="act-text"><strong>¡Venta cerrada!</strong> Villa Bergström — €1.05M</div><div class="act-time">Hace 23 min · Agente: M. López</div></div></div>
+        <div class="act"><div class="act-ico" style="background:var(--blue-bg)">📨</div><div class="act-body"><div class="act-text"><strong>Email automático</strong> enviado a Henrik Larsson — bienvenida + 3 propiedades sugeridas</div><div class="act-time">Hace 1h</div></div></div>
+        <div class="act"><div class="act-ico" style="background:var(--red-bg)">🔥</div><div class="act-body"><div class="act-text"><strong>Lead HOT detectado:</strong> James O'Brien visitó 7 propiedades en 2 días</div><div class="act-time">Hace 2h</div></div></div>
+        <div class="act"><div class="act-ico" style="background:var(--yellow-bg)">📞</div><div class="act-body"><div class="act-text"><strong>Recordatorio automático:</strong> Llamar a Familia Klein — reunión mañana 11:00h</div><div class="act-time">Hace 3h</div></div></div>
+        <div class="act"><div class="act-ico" style="background:var(--purple-bg)">📋</div><div class="act-body"><div class="act-text"><strong>Propuesta enviada</strong> a Mohammed Al-Rashid — Bahía del Duque €3.4M</div><div class="act-time">Hace 5h</div></div></div>
+        <div class="act"><div class="act-ico" style="background:var(--green-bg)">💬</div><div class="act-body"><div class="act-text"><strong>WhatsApp automático:</strong> Yuki Tanaka confirmó reunión para el viernes</div><div class="act-time">Ayer 16:42</div></div></div>
+      </div>
+    </div>
+
   </div>
+
+  <!-- GRÁFICO + AUTOS + ALERTAS -->
   <div class="section-label">Analíticas y automatización</div>
   <div class="g3">
-    <div class="panel"><div class="phead"><div class="ptitle">Facturación mensual 2026</div><span style="font-size:12px;font-weight:800;color:var(--green)">+23% vs año anterior</span></div><div class="chart-body"><div class="chart-title">Comisiones generadas (€)</div><div class="bars"><div class="bar-col"><div class="bar-fill bar-dim" style="height:46px"></div><div class="bar-label">€312K</div><div class="bar-mo">Ene</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:38px"></div><div class="bar-label">€268K</div><div class="bar-mo">Feb</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:60px"></div><div class="bar-label">€415K</div><div class="bar-mo">Mar</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:65px"></div><div class="bar-label">€451K</div><div class="bar-mo">Abr</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:79px"></div><div class="bar-label">€548K</div><div class="bar-mo">May</div></div><div class="bar-col"><div class="bar-fill bar-active" style="height:100px"></div><div class="bar-label" style="color:var(--accent2);font-weight:800">€847K</div><div class="bar-mo" style="color:var(--accent2);font-weight:800">Jun ▲</div></div></div><div class="chart-stats"><div class="stat-row"><span>Total acumulado 2026</span><span>€2.841M</span></div><div class="stat-row"><span>Ticket medio</span><span>€237K</span></div><div class="stat-row"><span>Comisión media (3%)</span><span>€7.1K / venta</span></div></div></div></div>
-    <div class="panel"><div class="phead"><div class="ptitle">Automatizaciones</div><span style="font-size:11px;font-weight:800;background:var(--green-bg);color:var(--green);padding:3px 10px;border-radius:100px">5 activas</span></div><div class="auto-body"><div class="auto"><div class="auto-head"><span class="auto-name">Bienvenida nuevo lead</span><span class="on-badge">ON</span></div><div class="auto-desc">Email + WhatsApp &lt;5 min · <strong>23 enviados hoy</strong></div></div><div class="auto"><div class="auto-head"><span class="auto-name">Seguimiento 48h sin respuesta</span><span class="on-badge">ON</span></div><div class="auto-desc">Alerta al agente · <strong>8 alertas hoy</strong></div></div><div class="auto"><div class="auto-head"><span class="auto-name">Score IA de leads</span><span class="on-badge">ON</span></div><div class="auto-desc">IA analiza comportamiento en tiempo real</div></div><div class="auto"><div class="auto-head"><span class="auto-name">Recordatorio cita 24h antes</span><span class="on-badge">ON</span></div><div class="auto-desc">WhatsApp automático · <strong>3 reuniones mañana</strong></div></div><div class="auto"><div class="auto-head"><span class="auto-name">Informe semanal PDF</span><span class="on-badge">ON</span></div><div class="auto-desc">Cada lunes 09:00h · KPIs + pipeline + ranking agentes</div></div></div></div>
-    <div class="panel"><div class="phead"><div class="ptitle">Alertas prioritarias</div><span style="font-size:11px;font-weight:800;background:var(--red-bg);color:var(--red);padding:3px 10px;border-radius:100px">3 urgentes</span></div><div class="alerts-body"><div class="alert urg"><div class="alert-ico">🔥</div><div><div class="alert-text"><strong>Mohammed Al-Rashid</strong> no ha respondido — 48h. Llamar ahora.</div><div class="alert-time">Urgente · hace 2h</div></div></div><div class="alert urg"><div class="alert-ico">⚠️</div><div><div class="alert-text"><strong>8 leads nuevos</strong> sin contacto. El 40% abandona en 1h.</div><div class="alert-time">Urgente · hace 4h</div></div></div><div class="alert urg"><div class="alert-ico">📅</div><div><div class="alert-text"><strong>Reunión Klein mañana 11h</strong> — sin confirmación del cliente.</div><div class="alert-time">Urgente · en 18h</div></div></div><div class="alert warn"><div class="alert-ico">📊</div><div><div class="alert-text"><strong>Ingrid Svensson</strong> visitó el portal 3 veces — lead caliente.</div><div class="alert-time">Aviso · hace 6h</div></div></div><div class="alert"><div class="alert-ico">💬</div><div><div class="alert-text"><strong>5 emails</strong> sin respuesta esta semana.</div><div class="alert-time">Aviso · ayer</div></div></div></div></div>
+
+    <!-- GRÁFICO -->
+    <div class="panel">
+      <div class="phead">
+        <div class="ptitle">Facturación mensual 2026</div>
+        <span style="font-size:12px;font-weight:800;color:var(--green)">+23% vs año anterior</span>
+      </div>
+      <div class="chart-body">
+        <div class="chart-title">Comisiones generadas (€)</div>
+        <div class="bars">
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:46px"></div><div class="bar-label">€312K</div><div class="bar-mo">Ene</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:38px"></div><div class="bar-label">€268K</div><div class="bar-mo">Feb</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:60px"></div><div class="bar-label">€415K</div><div class="bar-mo">Mar</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:65px"></div><div class="bar-label">€451K</div><div class="bar-mo">Abr</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:79px"></div><div class="bar-label">€548K</div><div class="bar-mo">May</div></div>
+          <div class="bar-col"><div class="bar-fill bar-active" style="height:100px"></div><div class="bar-label" style="color:var(--accent2);font-weight:800">€847K</div><div class="bar-mo" style="color:var(--accent2);font-weight:800">Jun ▲</div></div>
+        </div>
+        <div class="chart-stats">
+          <div class="stat-row"><span>Total acumulado 2026</span><span>€2.841M</span></div>
+          <div class="stat-row"><span>Ticket medio por venta</span><span>€237K</span></div>
+          <div class="stat-row"><span>Comisión media (3%)</span><span>€7.1K / venta</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTOMATIZACIONES -->
+    <div class="panel">
+      <div class="phead">
+        <div class="ptitle">Automatizaciones</div>
+        <span style="font-size:11px;font-weight:800;background:var(--green-bg);color:var(--green);padding:3px 10px;border-radius:100px">5 activas</span>
+      </div>
+      <div class="auto-body">
+        <div class="auto">
+          <div class="auto-head"><span class="auto-name">Bienvenida nuevo lead</span><span class="on-badge">ON</span></div>
+          <div class="auto-desc">Email + WhatsApp en &lt;5 min · <strong>23 enviados hoy</strong></div>
+        </div>
+        <div class="auto">
+          <div class="auto-head"><span class="auto-name">Seguimiento 48h sin respuesta</span><span class="on-badge">ON</span></div>
+          <div class="auto-desc">Alerta automática al agente · <strong>8 alertas hoy</strong></div>
+        </div>
+        <div class="auto">
+          <div class="auto-head"><span class="auto-name">Score IA de leads</span><span class="on-badge">ON</span></div>
+          <div class="auto-desc">IA analiza comportamiento · actualización en tiempo real</div>
+        </div>
+        <div class="auto">
+          <div class="auto-head"><span class="auto-name">Recordatorio cita 24h antes</span><span class="on-badge">ON</span></div>
+          <div class="auto-desc">WhatsApp automático al cliente · <strong>3 reuniones mañana</strong></div>
+        </div>
+        <div class="auto">
+          <div class="auto-head"><span class="auto-name">Informe semanal PDF</span><span class="on-badge">ON</span></div>
+          <div class="auto-desc">Cada lunes 09:00h · incluye KPIs, pipeline y ranking agentes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALERTAS -->
+    <div class="panel">
+      <div class="phead">
+        <div class="ptitle">Alertas prioritarias</div>
+        <span style="font-size:11px;font-weight:800;background:var(--red-bg);color:var(--red);padding:3px 10px;border-radius:100px">3 urgentes</span>
+      </div>
+      <div class="alerts-body">
+        <div class="alert urg"><div class="alert-ico">🔥</div><div class="alert-body"><div class="alert-text"><strong>Mohammed Al-Rashid</strong> no ha respondido — 48h de silencio. Llamar ahora.</div><div class="alert-time">Urgente · hace 2h</div></div></div>
+        <div class="alert urg"><div class="alert-ico">⚠️</div><div class="alert-body"><div class="alert-text"><strong>8 leads nuevos</strong> sin primer contacto. El 40% abandona antes de 1h.</div><div class="alert-time">Urgente · hace 4h</div></div></div>
+        <div class="alert urg"><div class="alert-ico">📅</div><div class="alert-body"><div class="alert-text"><strong>Reunión Klein mañana 11:00h</strong> — cliente sin confirmar. Enviar recordatorio.</div><div class="alert-time">Urgente · en 18h</div></div></div>
+        <div class="alert warn"><div class="alert-ico">📊</div><div class="alert-body"><div class="alert-text"><strong>Ingrid Svensson</strong> visitó el portal 3 veces hoy — lead caliente, asignar agente senior.</div><div class="alert-time">Aviso · hace 6h</div></div></div>
+        <div class="alert"><div class="alert-ico">💬</div><div class="alert-body"><div class="alert-text"><strong>5 emails</strong> pendientes de respuesta esta semana.</div><div class="alert-time">Aviso · ayer</div></div></div>
+      </div>
+    </div>
+
   </div>
-</div>
-<footer>Dashboard desarrollado por <strong>JM Productions</strong> · <a href="mailto:jmproductions863@gmail.com">jmproductions863@gmail.com</a></footer>
-</div>
+
+</div><!-- /page -->
+
+<footer>
+  <strong>Propflow</strong> · CRM e inteligencia para inmobiliarias · <a href="mailto:jmproductions863@gmail.com">hola@propflow.io</a>
+</footer>
+
+</div><!-- /wrap -->
 </body>
 </html>
