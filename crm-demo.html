@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JM CRM · Demo Inmobiliaria</title>
+<title>Propflow · Demo Inmobiliaria</title>
 <style>
 :root {
   --bg: #080810;
@@ -26,23 +26,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  font-size: 14px;
-  line-height: 1.6;
-  overflow-x: hidden;
+  background: var(--bg); color: var(--text);
+  min-height: 100vh; font-size: 14px; line-height: 1.6; overflow-x: hidden;
 }
 .orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
 .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .35; animation: drift 18s ease-in-out infinite; }
-.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #7c6fff 0%, transparent 70%); top: -150px; left: -100px; animation-delay: 0s; }
+.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #7c6fff 0%, transparent 70%); top: -150px; left: -100px; }
 .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #22c55e 0%, transparent 70%); top: 40%; right: -120px; animation-delay: -6s; }
 .orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, #60a5fa 0%, transparent 70%); bottom: -100px; left: 30%; animation-delay: -12s; }
-@keyframes drift { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -40px) scale(1.05); } 66% { transform: translate(-20px, 30px) scale(.95); } }
+@keyframes drift { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(30px,-40px) scale(1.05);} 66%{transform:translate(-20px,30px) scale(.95);} }
 .wrap { position: relative; z-index: 1; }
-header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,16,.8); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid var(--border); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(8,8,16,.8); backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #7c6fff, #b49eff); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; color: #fff; box-shadow: 0 4px 14px rgba(124,111,255,.4); }
+.logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #7c6fff, #b49eff); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(124,111,255,.4); }
 .logo-name { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
 .logo-by { font-size: 10px; color: var(--muted); font-weight: 500; }
 .header-right { display: flex; align-items: center; gap: 10px; }
@@ -53,6 +56,16 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,16,.8); ba
 .page { padding: 24px; max-width: 1440px; margin: 0 auto; }
 .section-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; margin-top: 28px; }
 .section-label:first-child { margin-top: 0; }
+.welcome-strip { background: linear-gradient(135deg, rgba(124,111,255,.08) 0%, rgba(34,197,94,.04) 100%); border: 1px solid rgba(124,111,255,.2); border-radius: 18px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+.ws-title { font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+.ws-title span { color: var(--accent2); }
+.ws-sub { font-size: 12px; color: var(--muted); }
+.ws-sub strong { color: var(--text); font-weight: 700; }
+.ws-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.ws-stat { text-align: center; }
+.ws-val { font-size: 22px; font-weight: 900; color: var(--accent2); letter-spacing: -.02em; }
+.ws-val.green { color: var(--green); }
+.ws-label { font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
 .kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
 .kpi { background: var(--glass); border: 1px solid var(--border); border-radius: 18px; padding: 20px; position: relative; overflow: hidden; transition: border-color .25s var(--ease), transform .25s var(--ease); cursor: default; }
 .kpi:hover { border-color: var(--border-hi); transform: translateY(-2px); }
@@ -74,6 +87,29 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,16,.8); ba
 .phead { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 .ptitle { font-size: 14px; font-weight: 800; letter-spacing: -.01em; }
 .psub { font-size: 12px; color: var(--muted); font-weight: 500; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.g2-wide { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 300px; gap: 16px; }
+.source-row { display: flex; align-items: center; gap: 10px; padding: 12px 20px; border-bottom: 1px solid var(--border); }
+.source-row:last-child { border-bottom: none; }
+.source-flag { font-size: 18px; flex-shrink: 0; }
+.source-name { font-size: 13px; font-weight: 700; }
+.source-origin { font-size: 10px; color: var(--muted); font-weight: 500; margin-top: 1px; }
+.source-name-wrap { flex: 1; }
+.source-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.source-bar { height: 100%; border-radius: 3px; }
+.source-count { font-size: 13px; font-weight: 900; color: var(--accent2); min-width: 28px; text-align: right; }
+.source-pct { font-size: 11px; color: var(--muted); min-width: 32px; text-align: right; }
+.buyer-row { display: flex; align-items: center; gap: 14px; padding: 13px 20px; border-bottom: 1px solid var(--border); }
+.buyer-row:last-child { border-bottom: none; }
+.buyer-flag { font-size: 22px; flex-shrink: 0; }
+.buyer-info { flex: 1; min-width: 0; }
+.buyer-name { font-size: 13px; font-weight: 800; }
+.buyer-detail { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.buyer-bar-wrap { width: 80px; height: 5px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.buyer-bar { height: 100%; border-radius: 3px; }
+.buyer-pct { font-size: 14px; font-weight: 900; min-width: 36px; text-align: right; }
+.buyer-budget { font-size: 11px; font-weight: 700; color: var(--green); min-width: 52px; text-align: right; }
 .pipeline-wrap { overflow-x: auto; }
 .pipeline { display: grid; grid-template-columns: repeat(5, minmax(160px, 1fr)); }
 .pcol { border-right: 1px solid var(--border); }
@@ -90,11 +126,9 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,16,.8); ba
 .pcard-val { font-size: 12px; font-weight: 900; color: var(--green); }
 .avatar { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; color: #fff; }
 .hot { font-size: 9px; font-weight: 900; background: var(--red-bg); color: var(--red); border-radius: 5px; padding: 2px 6px; text-transform: uppercase; letter-spacing: .04em; }
-.g2 { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
-.g3 { display: grid; grid-template-columns: 1fr 1fr 300px; gap: 16px; }
 .tscroll { overflow-x: auto; padding: 0 20px 20px; }
 table { width: 100%; border-collapse: collapse; min-width: 680px; }
-thead th { text-align: left; font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: 10px 10px; border-bottom: 1px solid var(--border); }
+thead th { text-align: left; font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: 10px; border-bottom: 1px solid var(--border); }
 tbody td { padding: 13px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
 tbody tr:last-child td { border-bottom: none; }
 tbody tr { transition: background .15s; }
@@ -114,7 +148,6 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 .score-bar { width: 56px; height: 4px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
 .score-fill { height: 100%; border-radius: 3px; }
 .score-n { font-size: 12px; font-weight: 800; color: var(--muted); }
-.act-list { }
 .act { display: flex; gap: 13px; padding: 14px 20px; border-bottom: 1px solid var(--border); transition: background .15s; }
 .act:last-child { border-bottom: none; }
 .act:hover { background: rgba(255,255,255,.02); }
@@ -123,6 +156,20 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 .act-text { font-size: 13px; line-height: 1.45; }
 .act-text strong { font-weight: 700; }
 .act-time { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.agent-row { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+.agent-row:last-child { border-bottom: none; }
+.agent-rank { font-size: 16px; width: 24px; text-align: center; flex-shrink: 0; }
+.agent-av { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: #fff; flex-shrink: 0; }
+.agent-info { flex: 1; min-width: 0; }
+.agent-name { font-size: 13px; font-weight: 800; }
+.agent-role { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.agent-stats { display: flex; gap: 20px; }
+.agent-stat { text-align: right; }
+.agent-stat-val { font-size: 14px; font-weight: 900; }
+.agent-stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.agent-score { display: flex; align-items: center; gap: 6px; }
+.agent-score-bar { width: 64px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+.agent-score-fill { height: 100%; border-radius: 3px; }
 .chart-body { padding: 18px 20px; }
 .chart-title { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
 .bars { display: flex; align-items: flex-end; gap: 10px; height: 100px; margin-bottom: 6px; }
@@ -154,11 +201,51 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 .alert-text { font-size: 12px; line-height: 1.45; }
 .alert-text strong { font-weight: 700; }
 .alert-time { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.roi-banner { display: grid; grid-template-columns: 1fr auto 1fr auto; background: var(--glass); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; }
+.roi-col { padding: 24px 20px; }
+.roi-col--bad { border-right: 1px solid var(--border); }
+.roi-col--good { border-right: 1px solid var(--border); }
+.roi-tag { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+.roi-tag--bad { color: var(--red); }
+.roi-tag--good { color: var(--green); }
+.roi-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; margin-bottom: 11px; line-height: 1.45; }
+.roi-item:last-child { margin-bottom: 0; }
+.roi-item strong { font-weight: 800; }
+.roi-vs { display: flex; align-items: center; justify-content: center; padding: 0 20px; font-size: 14px; font-weight: 900; color: var(--muted); border-right: 1px solid var(--border); }
+.roi-math { padding: 24px 20px; min-width: 210px; }
+.roi-math-title { font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
+.roi-calc-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 9px; }
+.roi-calc-row span:last-child { font-weight: 800; }
+.roi-divider { height: 1px; background: var(--border); margin: 12px 0; }
+.roi-total { display: flex; justify-content: space-between; align-items: center; }
+.roi-total-label { font-size: 14px; font-weight: 800; }
+.roi-total-val { font-size: 26px; font-weight: 900; color: var(--green); letter-spacing: -.02em; }
+.roi-cta { margin-top: 16px; padding: 12px 14px; background: rgba(124,111,255,.1); border: 1px solid rgba(124,111,255,.22); border-radius: 12px; font-size: 12px; font-weight: 700; color: var(--accent2); text-align: center; line-height: 1.55; }
+.roi-cta em { font-style: normal; color: var(--text); font-weight: 900; }
 footer { text-align: center; padding: 28px 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
 footer strong { color: var(--accent2); font-weight: 700; }
 footer a { color: var(--accent2); text-decoration: none; font-weight: 600; }
-@media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(2,1fr); } .g2 { grid-template-columns: 1fr; } .g3 { grid-template-columns: 1fr; } .pipeline { grid-template-columns: repeat(3, minmax(160px,1fr)); } }
-@media (max-width: 600px) { .kpi-grid { grid-template-columns: repeat(2,1fr); } .kpi-val { font-size: 24px; } .page { padding: 16px; } header { padding: 0 16px; } .agency-tag { display: none; } .pipeline { grid-template-columns: repeat(2, minmax(160px,1fr)); } }
+@media (max-width: 1100px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .g2 { grid-template-columns: 1fr; }
+  .g2-wide { grid-template-columns: 1fr; }
+  .g3 { grid-template-columns: 1fr; }
+  .pipeline { grid-template-columns: repeat(3, minmax(160px,1fr)); }
+  .roi-banner { grid-template-columns: 1fr; }
+  .roi-col--bad { border-right: none; border-bottom: 1px solid var(--border); }
+  .roi-col--good { border-right: none; border-bottom: 1px solid var(--border); }
+  .roi-vs { border-right: none; border-bottom: 1px solid var(--border); padding: 14px; }
+}
+@media (max-width: 600px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .kpi-val { font-size: 24px; }
+  .page { padding: 16px; }
+  header { padding: 0 16px; }
+  .agency-tag { display: none; }
+  .pipeline { grid-template-columns: repeat(2, minmax(160px,1fr)); }
+  .ws-stats { gap: 16px; }
+  .agent-stats { gap: 12px; }
+}
 </style>
 </head>
 <body>
@@ -166,11 +253,8 @@ footer a { color: var(--accent2); text-decoration: none; font-weight: 600; }
 <div class="wrap">
 <header>
   <div class="logo">
-    <div class="logo-mark">JM</div>
-    <div>
-      <div class="logo-name">JM CRM</div>
-      <div class="logo-by">by JM Productions</div>
-    </div>
+    <div class="logo-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 9L10 2L17 9V18H13V12H7V18H3V9Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="rgba(255,255,255,.18)"/></svg></div>
+    <div><div class="logo-name">Propflow</div><div class="logo-by">CRM Inmobiliario</div></div>
   </div>
   <div class="header-right">
     <div class="agency-tag">Olympo Inmobiliaria · Costa Adeje</div>
@@ -178,37 +262,167 @@ footer a { color: var(--accent2); text-decoration: none; font-weight: 600; }
   </div>
 </header>
 <div class="page">
-  <div class="section-label">Resumen del mes</div>
-  <div class="kpi-grid">
-    <div class="kpi kpi-g"><div class="kpi-ico" style="background:var(--green-bg)">💰</div><div class="kpi-label">Facturación</div><div class="kpi-val" style="color:var(--green)">€847K</div><div class="tag-row"><span class="chip chip-g">↑ 23%</span><span class="kpi-sub">vs. mes anterior</span></div></div>
-    <div class="kpi kpi-b"><div class="kpi-ico" style="background:var(--blue-bg)">👥</div><div class="kpi-label">Leads nuevos</div><div class="kpi-val" style="color:var(--blue)">23</div><div class="tag-row"><span class="chip chip-g">↑ 12%</span><span class="kpi-sub">esta semana</span></div></div>
-    <div class="kpi kpi-p"><div class="kpi-ico" style="background:var(--purple-bg)">🎯</div><div class="kpi-label">Tasa de cierre</div><div class="kpi-val" style="color:var(--purple)">18%</div><div class="tag-row"><span class="chip chip-g">↑ 4pp</span><span class="kpi-sub">sector: 9%</span></div></div>
-    <div class="kpi kpi-y"><div class="kpi-ico" style="background:var(--yellow-bg)">🏠</div><div class="kpi-label">Propiedades activas</div><div class="kpi-val" style="color:var(--yellow)">67</div><div class="tag-row"><span class="chip chip-r">↓ 3</span><span class="kpi-sub">12 vendidas</span></div></div>
+
+  <div class="welcome-strip">
+    <div class="ws-left">
+      <div class="ws-title">Olympo Inmobiliaria — <span>Sistema activo y funcionando</span></div>
+      <div class="ws-sub">Propflow lleva <strong>47 días</strong> trabajando para tu equipo. Hoy: <strong>0 leads sin atender</strong>, <strong>5 automatizaciones activas</strong>, <strong>247 tareas ejecutadas</strong>.</div>
+    </div>
+    <div class="ws-stats">
+      <div class="ws-stat"><div class="ws-val">4 min</div><div class="ws-label">Respuesta a leads</div></div>
+      <div class="ws-stat"><div class="ws-val green">0</div><div class="ws-label">Sin atender</div></div>
+      <div class="ws-stat"><div class="ws-val">€7.1K</div><div class="ws-label">Comisión / venta</div></div>
+      <div class="ws-stat"><div class="ws-val green">18%</div><div class="ws-label">Tasa cierre (sector: 9%)</div></div>
+    </div>
   </div>
-  <div class="section-label" style="margin-top:28px">Pipeline de ventas</div>
+
+  <div class="section-label">Resumen del mes · Junio 2026</div>
+  <div class="kpi-grid">
+    <div class="kpi kpi-g"><div class="kpi-ico" style="background:var(--green-bg)">&#x1F4B0;</div><div class="kpi-label">Facturación</div><div class="kpi-val" style="color:var(--green)">€847K</div><div class="tag-row"><span class="chip chip-g">↑ 23%</span><span class="kpi-sub">vs. mes anterior</span></div></div>
+    <div class="kpi kpi-b"><div class="kpi-ico" style="background:var(--blue-bg)">&#x1F465;</div><div class="kpi-label">Leads nuevos</div><div class="kpi-val" style="color:var(--blue)">23</div><div class="tag-row"><span class="chip chip-g">↑ 12%</span><span class="kpi-sub">esta semana</span></div></div>
+    <div class="kpi kpi-p"><div class="kpi-ico" style="background:var(--purple-bg)">&#x1F3AF;</div><div class="kpi-label">Tasa de cierre</div><div class="kpi-val" style="color:var(--purple)">18%</div><div class="tag-row"><span class="chip chip-g">↑ 4pp</span><span class="kpi-sub">sector: 9%</span></div></div>
+    <div class="kpi kpi-y"><div class="kpi-ico" style="background:var(--yellow-bg)">&#x1F3E0;</div><div class="kpi-label">Propiedades activas</div><div class="kpi-val" style="color:var(--yellow)">67</div><div class="tag-row"><span class="chip chip-r">↓ 3</span><span class="kpi-sub">12 vendidas</span></div></div>
+  </div>
+
+  <div class="section-label">Fuentes de leads y perfil del comprador</div>
+  <div class="g2">
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Origen de leads</div><span class="psub">23 leads este mes</span></div>
+      <div class="source-row"><div class="source-flag">🇬🇧</div><div class="source-name-wrap"><div class="source-name">Rightmove</div><div class="source-origin">Reino Unido</div></div><div class="source-bar-wrap"><div class="source-bar" style="width:100%;background:var(--blue)"></div></div><div class="source-pct">34%</div><div class="source-count">8</div></div>
+      <div class="source-row"><div class="source-flag">🇩🇪</div><div class="source-name-wrap"><div class="source-name">Idealista.de</div><div class="source-origin">Alemania / Austria</div></div><div class="source-bar-wrap"><div class="source-bar" style="width:82%;background:var(--accent)"></div></div><div class="source-pct">28%</div><div class="source-count">7</div></div>
+      <div class="source-row"><div class="source-flag">🇸🇪</div><div class="source-name-wrap"><div class="source-name">Kyero.com</div><div class="source-origin">Países Nórdicos</div></div><div class="source-bar-wrap"><div class="source-bar" style="width:53%;background:var(--purple)"></div></div><div class="source-pct">18%</div><div class="source-count">4</div></div>
+      <div class="source-row"><div class="source-flag">&#x1F4AC;</div><div class="source-name-wrap"><div class="source-name">WhatsApp directo</div><div class="source-origin">Referidos / Directo</div></div><div class="source-bar-wrap"><div class="source-bar" style="width:35%;background:var(--green)"></div></div><div class="source-pct">12%</div><div class="source-count">3</div></div>
+      <div class="source-row"><div class="source-flag">&#x1F4F1;</div><div class="source-name-wrap"><div class="source-name">Redes sociales</div><div class="source-origin">Instagram / Facebook</div></div><div class="source-bar-wrap"><div class="source-bar" style="width:24%;background:var(--orange)"></div></div><div class="source-pct">8%</div><div class="source-count">1</div></div>
+    </div>
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Perfil del comprador</div><span class="psub">Budget medio · tipo de propiedad</span></div>
+      <div class="buyer-row"><div class="buyer-flag">🇬🇧</div><div class="buyer-info"><div class="buyer-name">Reino Unido</div><div class="buyer-detail">Villa 3–4H · Costa Adeje / Palm Mar</div></div><div class="buyer-bar-wrap"><div class="buyer-bar" style="width:100%;background:var(--blue)"></div></div><div class="buyer-pct" style="color:var(--blue)">34%</div><div class="buyer-budget">≈€380K</div></div>
+      <div class="buyer-row"><div class="buyer-flag">🇩🇪</div><div class="buyer-info"><div class="buyer-name">Alemania</div><div class="buyer-detail">Villa lujo · Bahía Duque / Adeje Golf</div></div><div class="buyer-bar-wrap"><div class="buyer-bar" style="width:82%;background:var(--accent)"></div></div><div class="buyer-pct" style="color:var(--accent2)">28%</div><div class="buyer-budget">≈€520K</div></div>
+      <div class="buyer-row"><div class="buyer-flag">🇸🇪</div><div class="buyer-info"><div class="buyer-name">Países Nórdicos</div><div class="buyer-detail">Villa premium · El Duque / Torviscas</div></div><div class="buyer-bar-wrap"><div class="buyer-bar" style="width:53%;background:var(--purple)"></div></div><div class="buyer-pct" style="color:var(--purple)">18%</div><div class="buyer-budget">≈€720K</div></div>
+      <div class="buyer-row"><div class="buyer-flag">🇪🇸</div><div class="buyer-info"><div class="buyer-name">España peninsular</div><div class="buyer-detail">Apartamento · Los Cristianos / Pl. Américas</div></div><div class="buyer-bar-wrap"><div class="buyer-bar" style="width:35%;background:var(--yellow)"></div></div><div class="buyer-pct" style="color:var(--yellow)">12%</div><div class="buyer-budget">≈€245K</div></div>
+      <div class="buyer-row"><div class="buyer-flag">&#x1F30D;</div><div class="buyer-info"><div class="buyer-name">Oriente Medio / Suiza</div><div class="buyer-detail">Chalet lujo · Bahía Duque exclusivo</div></div><div class="buyer-bar-wrap"><div class="buyer-bar" style="width:24%;background:var(--orange)"></div></div><div class="buyer-pct" style="color:var(--orange)">8%</div><div class="buyer-budget">≈€1.8M</div></div>
+    </div>
+  </div>
+
+  <div class="section-label">Pipeline de ventas</div>
   <div class="panel">
-    <div class="phead"><div class="ptitle">Pipeline</div><div class="psub">47 leads activos · €4.2M potencial total</div></div>
+    <div class="phead"><div class="ptitle">Pipeline activo</div><div class="psub">47 leads · €4.2M potencial total</div></div>
     <div class="pipeline-wrap"><div class="pipeline">
       <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--blue)">Nuevo</span><span class="pcol-n" style="background:var(--blue-bg);color:var(--blue)">8</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Henrik Larsson</div><div class="pcard-prop">Villa 4H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€1.2M</span><span class="avatar" style="background:#7c6fff">ML</span></div></div><div class="pcard"><div class="pcard-name">Sarah Mitchell</div><div class="pcard-prop">Apto 2H · Fañabé</div><div class="pcard-foot"><span class="pcard-val">€285K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div><div class="pcard"><div class="pcard-name">Klaus Werner</div><div class="pcard-prop">Casa 3H · Torviscas</div><div class="pcard-foot"><span class="pcard-val">€540K</span><span class="avatar" style="background:#22c55e">AM</span></div></div></div></div>
       <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--yellow)">Contactado</span><span class="pcol-n" style="background:var(--yellow-bg);color:var(--yellow)">14</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">James O'Brien</div><div class="pcard-prop">Villa 5H · Palm Mar</div><div class="pcard-foot"><span class="pcard-val">€2.1M</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">Ingrid Svensson</div><div class="pcard-prop">Apto 3H · Playa Paraíso</div><div class="pcard-foot"><span class="pcard-val">€380K</span><span class="avatar" style="background:#7c6fff">ML</span></div></div><div class="pcard"><div class="pcard-name">Pierre Dubois</div><div class="pcard-prop">Apto 2H · Los Cristianos</div><div class="pcard-foot"><span class="pcard-val">€245K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div></div></div>
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--purple)">Reunión</span><span class="pcol-n" style="background:var(--purple-bg);color:var(--purple)">9</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Robert & Anne Klein</div><div class="pcard-prop">Villa 4H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€890K</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">Yuki Tanaka</div><div class="pcard-prop">Apto lujo · El Duque</div><div class="pcard-foot"><span class="pcard-val">€620K</span><span class="avatar" style="background:#22c55e">AM</span></div></div><div class="pcard"><div class="pcard-name">Petra Hoffmann</div><div class="pcard-prop">Villa 3H · Roque del Conde</div><div class="pcard-foot"><span class="pcard-val">€750K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div></div></div>
-      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--orange)">Propuesta</span><span class="pcol-n" style="background:var(--orange-bg);color:var(--orange)">7</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Mohammed Al-Rashid</div><div class="pcard-prop">Chalet 5H · Bahía Duque</div><div class="pcard-foot"><span class="pcard-val">€3.4M</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">David & Emma Thornton</div><div class="pcard-prop">Casa 3H · San Eugenio</div><div class="pcard-foot"><span class="pcard-val">€475K</span><span class="avatar" style="background:#7c6fff">ML</span></div></div></div></div>
+      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--purple)">Reunión</span><span class="pcol-n" style="background:var(--purple-bg);color:var(--purple)">9</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Robert &amp; Anne Klein</div><div class="pcard-prop">Villa 4H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€890K</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">Yuki Tanaka</div><div class="pcard-prop">Apto lujo · El Duque</div><div class="pcard-foot"><span class="pcard-val">€620K</span><span class="avatar" style="background:#22c55e">AM</span></div></div><div class="pcard"><div class="pcard-name">Petra Hoffmann</div><div class="pcard-prop">Villa 3H · Roque del Conde</div><div class="pcard-foot"><span class="pcard-val">€750K</span><span class="avatar" style="background:#3b82f6">CR</span></div></div></div></div>
+      <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--orange)">Propuesta</span><span class="pcol-n" style="background:var(--orange-bg);color:var(--orange)">7</span></div><div class="pcards"><div class="pcard"><div class="pcard-name">Mohammed Al-Rashid</div><div class="pcard-prop">Chalet 5H · Bahía Duque</div><div class="pcard-foot"><span class="pcard-val">€3.4M</span><span class="hot">HOT</span></div></div><div class="pcard"><div class="pcard-name">David &amp; Emma Thornton</div><div class="pcard-prop">Casa 3H · San Eugenio</div><div class="pcard-foot"><span class="pcard-val">€475K</span><span class="avatar" style="background:#7c6fff">ML</span></div></div></div></div>
       <div class="pcol"><div class="pcol-head"><span class="pcol-name" style="color:var(--green)">Cerrado ✓</span><span class="pcol-n" style="background:var(--green-bg);color:var(--green)">9</span></div><div class="pcards"><div class="pcard" style="border-color:rgba(34,197,94,.25)"><div class="pcard-name">Familia Bergström</div><div class="pcard-prop">Villa 4H · Playa de Fañabé</div><div class="pcard-foot"><span class="pcard-val">€1.05M</span><span style="font-size:10px;color:var(--green);font-weight:800">✓ HOY</span></div></div><div class="pcard" style="border-color:rgba(34,197,94,.15)"><div class="pcard-name">George Williams</div><div class="pcard-prop">Apto 2H · Costa Adeje</div><div class="pcard-foot"><span class="pcard-val">€320K</span><span style="font-size:10px;color:var(--muted)">06 Jun</span></div></div></div></div>
     </div></div>
   </div>
+
   <div class="section-label">Leads activos</div>
-  <div class="g2" style="margin-bottom:0">
-    <div class="panel"><div class="phead"><div class="ptitle">Todos los leads</div><span style="font-size:12px;font-weight:700;background:var(--blue-bg);color:var(--blue);padding:3px 10px;border-radius:100px">47 total</span></div><div class="tscroll"><table><thead><tr><th>Cliente</th><th>Propiedad</th><th>Presupuesto</th><th>Estado</th><th>Agente</th><th>Score IA</th></tr></thead><tbody><tr><td><div class="tname">Mohammed Al-Rashid</div><div class="temail">m.alrashid@outlook.ae</div></td><td><span class="ttag">Chalet lujo</span><span class="ttag">Bahía Duque</span></td><td style="font-weight:900;color:var(--green)">€3.4M</td><td><span class="status st3">Propuesta</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:94%;background:var(--green)"></div></div><span class="score-n">94</span></div></td></tr><tr><td><div class="tname">James O'Brien</div><div class="temail">james.obrien@gmail.com</div></td><td><span class="ttag">Villa 5H</span><span class="ttag">Palm Mar</span></td><td style="font-weight:900;color:var(--green)">€2.1M</td><td><span class="status st1">Contactado</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:88%;background:var(--green)"></div></div><span class="score-n">88</span></div></td></tr><tr><td><div class="tname">Robert & Anne Klein</div><div class="temail">rklein@web.de</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Adeje Golf</span></td><td style="font-weight:900;color:var(--text)">€890K</td><td><span class="status st2">Reunión</span></td><td><div class="tagent"><span class="avatar" style="background:#3b82f6">CR</span>C. Reyes</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:82%;background:var(--green)"></div></div><span class="score-n">82</span></div></td></tr><tr><td><div class="tname">Henrik Larsson</div><div class="temail">h.larsson@mail.se</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Costa Adeje</span></td><td style="font-weight:900;color:var(--text)">€1.2M</td><td><span class="status st0">Nuevo</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:71%;background:var(--yellow)"></div></div><span class="score-n">71</span></div></td></tr><tr><td><div class="tname">Yuki Tanaka</div><div class="temail">yuki.t@docomo.jp</div></td><td><span class="ttag">Apto lujo</span><span class="ttag">El Duque</span></td><td style="font-weight:900;color:var(--text)">€620K</td><td><span class="status st2">Reunión</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:76%;background:var(--yellow)"></div></div><span class="score-n">76</span></div></td></tr><tr><td><div class="tname">David & Emma Thornton</div><div class="temail">dthornton@bt.co.uk</div></td><td><span class="ttag">Casa 3H</span><span class="ttag">San Eugenio</span></td><td style="font-weight:900;color:var(--text)">€475K</td><td><span class="status st3">Propuesta</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:65%;background:var(--yellow)"></div></div><span class="score-n">65</span></div></td></tr><tr><td><div class="tname">Familia Bergström</div><div class="temail">bergstrom@gmail.com</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Playa Fañabé</span></td><td style="font-weight:900;color:var(--green)">€1.05M</td><td><span class="status st4">Cerrado ✓</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:100%;background:var(--green)"></div></div><span class="score-n">100</span></div></td></tr></tbody></table></div></div>
-    <div class="panel"><div class="phead"><div class="ptitle">Actividad reciente</div></div><div class="act-list"><div class="act"><div class="act-ico" style="background:var(--green-bg)">🎉</div><div class="act-body"><div class="act-text"><strong>¡Venta cerrada!</strong> Villa Bergström — €1.05M</div><div class="act-time">Hace 23 min · Agente: M. López</div></div></div><div class="act"><div class="act-ico" style="background:var(--blue-bg)">📨</div><div class="act-body"><div class="act-text"><strong>Email automático</strong> enviado a Henrik Larsson — bienvenida + 3 propiedades sugeridas</div><div class="act-time">Hace 1h</div></div></div><div class="act"><div class="act-ico" style="background:var(--red-bg)">🔥</div><div class="act-body"><div class="act-text"><strong>Lead HOT detectado:</strong> James O'Brien visitó 7 propiedades en 2 días</div><div class="act-time">Hace 2h</div></div></div><div class="act"><div class="act-ico" style="background:var(--yellow-bg)">📞</div><div class="act-body"><div class="act-text"><strong>Recordatorio automático:</strong> Llamar a Familia Klein — reunión mañana 11:00h</div><div class="act-time">Hace 3h</div></div></div><div class="act"><div class="act-ico" style="background:var(--purple-bg)">📋</div><div class="act-body"><div class="act-text"><strong>Propuesta enviada</strong> a Mohammed Al-Rashid — Bahía del Duque €3.4M</div><div class="act-time">Hace 5h</div></div></div><div class="act"><div class="act-ico" style="background:var(--green-bg)">💬</div><div class="act-body"><div class="act-text"><strong>WhatsApp automático:</strong> Yuki Tanaka confirmó reunión para el viernes</div><div class="act-time">Ayer 16:42</div></div></div></div></div>
+  <div class="g2-wide">
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Todos los leads</div><span style="font-size:12px;font-weight:700;background:var(--blue-bg);color:var(--blue);padding:3px 10px;border-radius:100px">47 total</span></div>
+      <div class="tscroll"><table><thead><tr><th>Cliente</th><th>Propiedad</th><th>Presupuesto</th><th>Estado</th><th>Agente</th><th>Score IA</th></tr></thead><tbody>
+        <tr><td><div class="tname">Mohammed Al-Rashid</div><div class="temail">m.alrashid@outlook.ae 🇦🇪</div></td><td><span class="ttag">Chalet lujo</span><span class="ttag">Bahía Duque</span></td><td style="font-weight:900;color:var(--green)">€3.4M</td><td><span class="status st3">Propuesta</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:94%;background:var(--green)"></div></div><span class="score-n">94</span></div></td></tr>
+        <tr><td><div class="tname">James O'Brien</div><div class="temail">james.obrien@gmail.com 🇬🇧</div></td><td><span class="ttag">Villa 5H</span><span class="ttag">Palm Mar</span></td><td style="font-weight:900;color:var(--green)">€2.1M</td><td><span class="status st1">Contactado</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:88%;background:var(--green)"></div></div><span class="score-n">88</span></div></td></tr>
+        <tr><td><div class="tname">Robert &amp; Anne Klein</div><div class="temail">rklein@web.de 🇩🇪</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Adeje Golf</span></td><td style="font-weight:900;color:var(--text)">€890K</td><td><span class="status st2">Reunión</span></td><td><div class="tagent"><span class="avatar" style="background:#3b82f6">CR</span>C. Reyes</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:82%;background:var(--green)"></div></div><span class="score-n">82</span></div></td></tr>
+        <tr><td><div class="tname">Henrik Larsson</div><div class="temail">h.larsson@mail.se 🇸🇪</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Costa Adeje</span></td><td style="font-weight:900;color:var(--text)">€1.2M</td><td><span class="status st0">Nuevo</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:71%;background:var(--yellow)"></div></div><span class="score-n">71</span></div></td></tr>
+        <tr><td><div class="tname">Yuki Tanaka</div><div class="temail">yuki.t@docomo.jp 🇯🇵</div></td><td><span class="ttag">Apto lujo</span><span class="ttag">El Duque</span></td><td style="font-weight:900;color:var(--text)">€620K</td><td><span class="status st2">Reunión</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:76%;background:var(--yellow)"></div></div><span class="score-n">76</span></div></td></tr>
+        <tr><td><div class="tname">David &amp; Emma Thornton</div><div class="temail">dthornton@bt.co.uk 🇬🇧</div></td><td><span class="ttag">Casa 3H</span><span class="ttag">San Eugenio</span></td><td style="font-weight:900;color:var(--text)">€475K</td><td><span class="status st3">Propuesta</span></td><td><div class="tagent"><span class="avatar" style="background:#7c6fff">ML</span>M. López</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:65%;background:var(--yellow)"></div></div><span class="score-n">65</span></div></td></tr>
+        <tr><td><div class="tname">Familia Bergström</div><div class="temail">bergstrom@gmail.com 🇸🇪</div></td><td><span class="ttag">Villa 4H</span><span class="ttag">Playa Fañabé</span></td><td style="font-weight:900;color:var(--green)">€1.05M</td><td><span class="status st4">Cerrado ✓</span></td><td><div class="tagent"><span class="avatar" style="background:#22c55e">AM</span>A. Mora</div></td><td><div class="score-row"><div class="score-bar"><div class="score-fill" style="width:100%;background:var(--green)"></div></div><span class="score-n">100</span></div></td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Actividad reciente</div></div>
+      <div class="act"><div class="act-ico" style="background:var(--green-bg)">&#x1F389;</div><div class="act-body"><div class="act-text"><strong>¡Venta cerrada!</strong> Villa Bergström — €1.05M</div><div class="act-time">Hace 23 min · Agente: M. López</div></div></div>
+      <div class="act"><div class="act-ico" style="background:var(--blue-bg)">&#x1F4E8;</div><div class="act-body"><div class="act-text"><strong>Email automático</strong> a Henrik Larsson — bienvenida + 3 propiedades sugeridas</div><div class="act-time">Hace 1h</div></div></div>
+      <div class="act"><div class="act-ico" style="background:var(--red-bg)">&#x1F525;</div><div class="act-body"><div class="act-text"><strong>Lead HOT:</strong> James O'Brien visitó 7 propiedades en 2 días — score 88</div><div class="act-time">Hace 2h</div></div></div>
+      <div class="act"><div class="act-ico" style="background:var(--yellow-bg)">&#x1F4DE;</div><div class="act-body"><div class="act-text"><strong>Recordatorio automático:</strong> Llamar a Familia Klein — reunión mañana 11:00h</div><div class="act-time">Hace 3h</div></div></div>
+      <div class="act"><div class="act-ico" style="background:var(--purple-bg)">&#x1F4CB;</div><div class="act-body"><div class="act-text"><strong>Propuesta enviada</strong> a Mohammed Al-Rashid — Bahía del Duque €3.4M</div><div class="act-time">Hace 5h</div></div></div>
+      <div class="act"><div class="act-ico" style="background:var(--green-bg)">&#x1F4AC;</div><div class="act-body"><div class="act-text"><strong>WhatsApp automático:</strong> Yuki Tanaka confirmó reunión para el viernes</div><div class="act-time">Ayer 16:42</div></div></div>
+    </div>
   </div>
+
+  <div class="section-label">Rendimiento del equipo</div>
+  <div class="panel">
+    <div class="phead"><div class="ptitle">Ranking de agentes · Junio 2026</div><span class="psub">Basado en cierres y comisiones</span></div>
+    <div class="agent-row"><div class="agent-rank">🥇</div><div class="agent-av" style="background:linear-gradient(135deg,#7c6fff,#b49eff)">ML</div><div class="agent-info"><div class="agent-name">María López</div><div class="agent-role">Agente Senior · 4 años en Olympo</div></div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-val" style="color:var(--green)">€340K</div><div class="agent-stat-label">Comisión</div></div><div class="agent-stat"><div class="agent-stat-val">4</div><div class="agent-stat-label">Cerradas</div></div><div class="agent-stat"><div class="agent-score"><div class="agent-score-bar"><div class="agent-score-fill" style="width:94%;background:var(--green)"></div></div><span style="font-size:12px;font-weight:900;color:var(--muted)">94</span></div><div class="agent-stat-label" style="text-align:center">Score IA</div></div></div></div>
+    <div class="agent-row"><div class="agent-rank">🥈</div><div class="agent-av" style="background:linear-gradient(135deg,#22c55e,#16a34a)">AM</div><div class="agent-info"><div class="agent-name">Andrés Mora</div><div class="agent-role">Agente · 2 años en Olympo</div></div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-val" style="color:var(--green)">€285K</div><div class="agent-stat-label">Comisión</div></div><div class="agent-stat"><div class="agent-stat-val">3</div><div class="agent-stat-label">Cerradas</div></div><div class="agent-stat"><div class="agent-score"><div class="agent-score-bar"><div class="agent-score-fill" style="width:88%;background:var(--green)"></div></div><span style="font-size:12px;font-weight:900;color:var(--muted)">88</span></div><div class="agent-stat-label" style="text-align:center">Score IA</div></div></div></div>
+    <div class="agent-row"><div class="agent-rank">🥉</div><div class="agent-av" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">CR</div><div class="agent-info"><div class="agent-name">Carlos Reyes</div><div class="agent-role">Agente · 1 año en Olympo</div></div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-val" style="color:var(--yellow)">€222K</div><div class="agent-stat-label">Comisión</div></div><div class="agent-stat"><div class="agent-stat-val">2</div><div class="agent-stat-label">Cerradas</div></div><div class="agent-stat"><div class="agent-score"><div class="agent-score-bar"><div class="agent-score-fill" style="width:76%;background:var(--yellow)"></div></div><span style="font-size:12px;font-weight:900;color:var(--muted)">76</span></div><div class="agent-stat-label" style="text-align:center">Score IA</div></div></div></div>
+  </div>
+
   <div class="section-label">Analíticas y automatización</div>
   <div class="g3">
-    <div class="panel"><div class="phead"><div class="ptitle">Facturación mensual 2026</div><span style="font-size:12px;font-weight:800;color:var(--green)">+23% vs año anterior</span></div><div class="chart-body"><div class="chart-title">Comisiones generadas (€)</div><div class="bars"><div class="bar-col"><div class="bar-fill bar-dim" style="height:46px"></div><div class="bar-label">€312K</div><div class="bar-mo">Ene</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:38px"></div><div class="bar-label">€268K</div><div class="bar-mo">Feb</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:60px"></div><div class="bar-label">€415K</div><div class="bar-mo">Mar</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:65px"></div><div class="bar-label">€451K</div><div class="bar-mo">Abr</div></div><div class="bar-col"><div class="bar-fill bar-dim" style="height:79px"></div><div class="bar-label">€548K</div><div class="bar-mo">May</div></div><div class="bar-col"><div class="bar-fill bar-active" style="height:100px"></div><div class="bar-label" style="color:var(--accent2);font-weight:800">€847K</div><div class="bar-mo" style="color:var(--accent2);font-weight:800">Jun ▲</div></div></div><div class="chart-stats"><div class="stat-row"><span>Total acumulado 2026</span><span>€2.841M</span></div><div class="stat-row"><span>Ticket medio por venta</span><span>€237K</span></div><div class="stat-row"><span>Comisión media (3%)</span><span>€7.1K / venta</span></div></div></div></div>
-    <div class="panel"><div class="phead"><div class="ptitle">Automatizaciones</div><span style="font-size:11px;font-weight:800;background:var(--green-bg);color:var(--green);padding:3px 10px;border-radius:100px">5 activas</span></div><div class="auto-body"><div class="auto"><div class="auto-head"><span class="auto-name">Bienvenida nuevo lead</span><span class="on-badge">ON</span></div><div class="auto-desc">Email + WhatsApp en &lt;5 min · <strong>23 enviados hoy</strong></div></div><div class="auto"><div class="auto-head"><span class="auto-name">Seguimiento 48h sin respuesta</span><span class="on-badge">ON</span></div><div class="auto-desc">Alerta automática al agente · <strong>8 alertas hoy</strong></div></div><div class="auto"><div class="auto-head"><span class="auto-name">Score IA de leads</span><span class="on-badge">ON</span></div><div class="auto-desc">IA analiza comportamiento · actualización en tiempo real</div></div><div class="auto"><div class="auto-head"><span class="auto-name">Recordatorio cita 24h antes</span><span class="on-badge">ON</span></div><div class="auto-desc">WhatsApp automático al cliente · <strong>3 reuniones mañana</strong></div></div><div class="auto"><div class="auto-head"><span class="auto-name">Informe semanal PDF</span><span class="on-badge">ON</span></div><div class="auto-desc">Cada lunes 09:00h · incluye KPIs, pipeline y ranking agentes</div></div></div></div>
-    <div class="panel"><div class="phead"><div class="ptitle">Alertas prioritarias</div><span style="font-size:11px;font-weight:800;background:var(--red-bg);color:var(--red);padding:3px 10px;border-radius:100px">3 urgentes</span></div><div class="alerts-body"><div class="alert urg"><div class="alert-ico">🔥</div><div><div class="alert-text"><strong>Mohammed Al-Rashid</strong> no ha respondido — 48h de silencio. Llamar ahora.</div><div class="alert-time">Urgente · hace 2h</div></div></div><div class="alert urg"><div class="alert-ico">⚠️</div><div><div class="alert-text"><strong>8 leads nuevos</strong> sin primer contacto. El 40% abandona antes de 1h.</div><div class="alert-time">Urgente · hace 4h</div></div></div><div class="alert urg"><div class="alert-ico">📅</div><div><div class="alert-text"><strong>Reunión Klein mañana 11:00h</strong> — cliente sin confirmar.</div><div class="alert-time">Urgente · en 18h</div></div></div><div class="alert warn"><div class="alert-ico">📊</div><div><div class="alert-text"><strong>Ingrid Svensson</strong> visitó el portal 3 veces hoy — lead caliente.</div><div class="alert-time">Aviso · hace 6h</div></div></div><div class="alert"><div class="alert-ico">💬</div><div><div class="alert-text"><strong>5 emails</strong> pendientes de respuesta esta semana.</div><div class="alert-time">Aviso · ayer</div></div></div></div></div>
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Facturación mensual 2026</div><span style="font-size:12px;font-weight:800;color:var(--green)">+23% vs año anterior</span></div>
+      <div class="chart-body">
+        <div class="chart-title">Comisiones generadas (€)</div>
+        <div class="bars">
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:46px"></div><div class="bar-label">€312K</div><div class="bar-mo">Ene</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:38px"></div><div class="bar-label">€268K</div><div class="bar-mo">Feb</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:60px"></div><div class="bar-label">€415K</div><div class="bar-mo">Mar</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:65px"></div><div class="bar-label">€451K</div><div class="bar-mo">Abr</div></div>
+          <div class="bar-col"><div class="bar-fill bar-dim" style="height:79px"></div><div class="bar-label">€548K</div><div class="bar-mo">May</div></div>
+          <div class="bar-col"><div class="bar-fill bar-active" style="height:100px"></div><div class="bar-label" style="color:var(--accent2);font-weight:800">€847K</div><div class="bar-mo" style="color:var(--accent2);font-weight:800">Jun ▲</div></div>
+        </div>
+        <div class="chart-stats">
+          <div class="stat-row"><span>Total acumulado 2026</span><span>€2.841M</span></div>
+          <div class="stat-row"><span>Ticket medio por venta</span><span>€237K</span></div>
+          <div class="stat-row"><span>Comisión media (3%)</span><span>€7.1K / venta</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Automatizaciones activas</div><span style="font-size:11px;font-weight:800;background:var(--green-bg);color:var(--green);padding:3px 10px;border-radius:100px">5 ON</span></div>
+      <div class="auto-body">
+        <div class="auto"><div class="auto-head"><span class="auto-name">Bienvenida nuevo lead</span><span class="on-badge">ON</span></div><div class="auto-desc">Email + WhatsApp en &lt;5 min · <strong>23 enviados hoy</strong></div></div>
+        <div class="auto"><div class="auto-head"><span class="auto-name">Seguimiento 48h sin respuesta</span><span class="on-badge">ON</span></div><div class="auto-desc">Alerta automática al agente · <strong>8 alertas hoy</strong></div></div>
+        <div class="auto"><div class="auto-head"><span class="auto-name">Score IA de leads</span><span class="on-badge">ON</span></div><div class="auto-desc">IA analiza comportamiento · actualización en tiempo real</div></div>
+        <div class="auto"><div class="auto-head"><span class="auto-name">Recordatorio cita 24h antes</span><span class="on-badge">ON</span></div><div class="auto-desc">WhatsApp automático al cliente · <strong>3 reuniones mañana</strong></div></div>
+        <div class="auto"><div class="auto-head"><span class="auto-name">Informe semanal PDF</span><span class="on-badge">ON</span></div><div class="auto-desc">Cada lunes 09:00h · KPIs, pipeline y ranking agentes</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="phead"><div class="ptitle">Alertas prioritarias</div><span style="font-size:11px;font-weight:800;background:var(--red-bg);color:var(--red);padding:3px 10px;border-radius:100px">3 urgentes</span></div>
+      <div class="alerts-body">
+        <div class="alert urg"><div class="alert-ico">&#x1F525;</div><div><div class="alert-text"><strong>Mohammed Al-Rashid</strong> — 48h sin respuesta. Llamar ahora.</div><div class="alert-time">Urgente · hace 2h</div></div></div>
+        <div class="alert urg"><div class="alert-ico">&#x26A0;&#xFE0F;</div><div><div class="alert-text"><strong>8 leads nuevos</strong> sin contacto. El 40% abandona en &lt;1h.</div><div class="alert-time">Urgente · hace 4h</div></div></div>
+        <div class="alert urg"><div class="alert-ico">&#x1F4C5;</div><div><div class="alert-text"><strong>Reunión Klein mañana 11h</strong> — sin confirmar. Enviar WhatsApp.</div><div class="alert-time">Urgente · en 18h</div></div></div>
+        <div class="alert warn"><div class="alert-ico">&#x1F4CA;</div><div><div class="alert-text"><strong>Ingrid Svensson</strong> visitó el portal 3 veces hoy — lead caliente.</div><div class="alert-time">Aviso · hace 6h</div></div></div>
+        <div class="alert"><div class="alert-ico">&#x1F4AC;</div><div><div class="alert-text"><strong>5 emails</strong> pendientes de respuesta esta semana.</div><div class="alert-time">Aviso · ayer</div></div></div>
+      </div>
+    </div>
   </div>
+
+  <div class="section-label">Por qué Propflow se paga solo — el cálculo real</div>
+  <div class="roi-banner">
+    <div class="roi-col roi-col--bad">
+      <div class="roi-tag roi-tag--bad">❌ Sin Propflow</div>
+      <div class="roi-item"><span>⏱️</span> Respuesta media a leads: <strong>3–4 horas</strong></div>
+      <div class="roi-item"><span>📉</span> El <strong>40% de leads abandona</strong> antes de recibir respuesta</div>
+      <div class="roi-item"><span>🔁</span> Tasa de cierre: <strong>~9%</strong> (media del sector Tenerife)</div>
+      <div class="roi-item"><span>📋</span> <strong>19h/semana</strong> en tareas manuales por agente</div>
+      <div class="roi-item"><span>😴</span> Leads de Rightmove llegan a las 2am — <strong>sin respuesta</strong> hasta el día siguiente</div>
+    </div>
+    <div class="roi-vs">VS</div>
+    <div class="roi-col roi-col--good">
+      <div class="roi-tag roi-tag--good">✅ Con Propflow</div>
+      <div class="roi-item"><span>⚡</span> Respuesta automática a leads: <strong>&lt;5 minutos, 24/7</strong></div>
+      <div class="roi-item"><span>🎯</span> <strong>0 leads sin atender</strong> — todos reciben respuesta automática</div>
+      <div class="roi-item"><span>📈</span> Tasa de cierre: <strong>18%</strong> (+100% vs sector)</div>
+      <div class="roi-item"><span>🤖</span> <strong>247 tareas automáticas</strong> ejecutadas hoy sin intervención</div>
+      <div class="roi-item"><span>🌍</span> Lead de Londres a las 2am → <strong>WhatsApp de bienvenida en 4 min</strong></div>
+    </div>
+    <div class="roi-math">
+      <div class="roi-math-title">El cálculo</div>
+      <div class="roi-calc-row"><span>1 venta extra al mes</span><span style="color:var(--green)">+€7.100</span></div>
+      <div class="roi-calc-row"><span>Coste mensual Propflow</span><span>€800</span></div>
+      <div class="roi-divider"></div>
+      <div class="roi-total"><div class="roi-total-label">ROI</div><div class="roi-total-val">8.9×</div></div>
+      <div class="roi-cta">Si en el primer mes no cerráis <em>1 operación más</em> gracias al sistema, no pagáis. Así de seguros estamos.</div>
+    </div>
+  </div>
+
 </div>
-<footer>Dashboard desarrollado por <strong>JM Productions</strong> · Automatización e inteligencia para inmobiliarias · <a href="mailto:jmproductions863@gmail.com">jmproductions863@gmail.com</a></footer>
+<footer><strong>Propflow</strong> · CRM e inteligencia para inmobiliarias · <a href="mailto:jmproductions863@gmail.com">hola@propflow.io</a></footer>
 </div>
 </body>
 </html>
